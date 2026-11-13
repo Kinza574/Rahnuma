@@ -76,4 +76,5 @@ h1, h2, h3, h4 {{ font-family: {SERIF}; color: {INK}; letter-spacing: 0; }}
 
 
 def apply():
+    """Inject the small custom CSS."""
     st.markdown(CSS, unsafe_allow_html=True)

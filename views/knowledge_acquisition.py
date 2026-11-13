@@ -12,6 +12,7 @@ from ui import state
 
 
 def render():
+    """Tabs for thresholds, universities, market data and rules."""
     kb = state.kb()
     c.page_title("Knowledge Acquisition", "Edit thresholds and data, check them, then apply for this session")
     c.expert_note()
@@ -31,6 +32,7 @@ def render():
 
 
 def apply(new_data):
+    """Validate the changed knowledge base and use it for this session."""
     new_kb = KB(new_data)
     problems = validate(new_kb)
     if problems:
@@ -43,6 +45,7 @@ def apply(new_data):
 
 
 def file_buttons(kb, name, label):
+    """Download and upload buttons for one JSON file."""
     data = kb.data[name]
     c1, c2 = st.columns(2)
     c1.download_button(f"Download {label} JSON", json.dumps(data, indent=1, ensure_ascii=False), file_name=f"{name}.json",
@@ -60,6 +63,7 @@ def file_buttons(kb, name, label):
 
 
 def thresholds_tab(kb):
+    """Edit thresholds; the order checks run before anything is applied."""
     c.muted("Edit a value, then press 'Check and apply'. Order checks run first (for example, the Inter bands must go down).")
     rows = [{"Key": k, "Value": json.dumps(v["value"]) if isinstance(v["value"], list) else v["value"],
              "Unit": v.get("unit", ""), "Note": v.get("note", ""), "Source": v.get("source", "")}
@@ -86,6 +90,7 @@ def thresholds_tab(kb):
 
 
 def universities_tab(kb):
+    """Edit fee band, minimum %, verified flag and source per offering."""
     c.muted(f"Data as of {kb.universities['as_of']}. One row per programme offering. Fee band must be low, medium, high or unknown.")
     rows = []
     for u in kb.universities["universities"]:
@@ -112,6 +117,7 @@ def universities_tab(kb):
 
 
 def market_tab(kb):
+    """Edit job demand words, confidence and notes per field."""
     c.muted(f"Data as of {kb.market['as_of']}. Demand words: high, medium or low.")
     rows = [{"Field": f, "Pakistan": m["pk"], "Abroad": m["abroad"], "Pakistan source": m["confidence"]["pk"],
              "Abroad source": m["confidence"]["abroad"], "Note": m["note"]} for f, m in kb.market["fields"].items()]
@@ -130,6 +136,7 @@ def market_tab(kb):
 
 
 def rules_tab(kb):
+    """Read-only view of rules.json with download / upload."""
     c.muted("Rules are shown read-only here. To change a rule, edit rules.json and upload it; the file is checked before it is used.")
     st.json(kb.data["rules"], expanded=False)
     file_buttons(kb, "rules", "rules")

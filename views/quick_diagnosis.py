@@ -16,12 +16,14 @@ TAB_NAMES = ["About you", "Education", "Interests", "Skills", "Tests", "Budget"]
 
 
 def clear_form():
+    """Empty every field of the form."""
     for k in list(st.session_state):
         if k.startswith(PREFIX + "_") or k in ("qd_result", "qd_answers", "qd_loaded"):
             del st.session_state[k]
 
 
 def load_sample(sample, kb):
+    """Fill the form with one sample student."""
     clear_form()
     answers = complete_answers(sample["answers"], kb)
     for q in kb.questions:
@@ -39,6 +41,7 @@ def load_sample(sample, kb):
 
 
 def collect(kb):
+    """Read the whole form into an answers dict."""
     answers = {}
     for q in kb.questions:
         c.read_into(q, PREFIX, answers)
@@ -48,6 +51,7 @@ def collect(kb):
 
 
 def sample_cards(kb, samples):
+    """The five sample-student cards with Load buttons."""
     st.markdown("**Sample students**")
     cols = st.columns(len(samples))
     for col, s in zip(cols, samples):
@@ -57,6 +61,7 @@ def sample_cards(kb, samples):
 
 
 def render():
+    """Form in tabs on the left, the report on the right."""
     kb = state.kb()
     c.page_title("Counsellor Desk", "Quick diagnosis on one screen")
     samples = load_samples()
@@ -91,6 +96,7 @@ def render():
 
 
 def use_whatif(new_answers):
+    """'Use these answers' from the What-if panel."""
     kb = state.kb()
     st.session_state.qd_answers = new_answers
     st.session_state.qd_result = run_consultation(new_answers, kb, use_ask_if=False)

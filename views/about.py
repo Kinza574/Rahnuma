@@ -8,6 +8,7 @@ from ui import state, theme
 
 
 def render():
+    """About page: components, requirements, sources and limitations."""
     kb = state.kb()
     c.page_title("About Rahnuma", "University Field Advisor — a rule-based expert system")
     st.write("Rahnuma is a rule-based expert system that helps Pakistani Matric, Inter and O/A-Level students "

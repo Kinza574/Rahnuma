@@ -12,6 +12,7 @@ from ui import state
 
 
 def render():
+    """Rule table with group filter, counts and the rule inspector."""
     kb = state.kb()
     c.page_title("Knowledge Base", "All 90 rules, their conditions and the thresholds they use")
     c.expert_note()
@@ -42,6 +43,7 @@ def render():
 
 
 def inspect(kb, r):
+    """Show one rule: conditions in plain English, actions, thresholds and questions."""
     st.markdown(f"**{r['id']}** · {r['group']} {r['group_name']} · {r['type']} · priority {r['priority']} · CF {r['cf']}"
                 + (" · schema rule (one instance per field)" if r.get("for_each") else ""))
     st.write(r["text"])

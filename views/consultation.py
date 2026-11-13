@@ -1,4 +1,4 @@
-"""Consultation wizard: welcome, 6 steps, review, result."""
+"""Guided Counselling: step-by-step consultation and diagnosis (welcome, 6 steps, review, report)."""
 
 import streamlit as st
 
@@ -20,6 +20,7 @@ def current_answers(kb, step_questions):
 
 
 def on_next(kb, step):
+    """Validate the shown questions of this step, then go to the next step."""
     wiz = state.wizard()
     qs = [q for q in kb.questions if q["step"] == step]
     answers = current_answers(kb, qs)
@@ -38,6 +39,7 @@ def on_next(kb, step):
 
 
 def on_back(kb, step):
+    """Keep what is on screen and go back one step."""
     wiz = state.wizard()
     qs = [q for q in kb.questions if q["step"] == step]
     wiz["answers"] = current_answers(kb, qs)
@@ -45,18 +47,21 @@ def on_back(kb, step):
 
 
 def see_result(kb):
+    """Run the engine on the saved answers and open the report."""
     wiz = state.wizard()
     st.session_state.wiz_result = run_consultation(wiz["answers"], kb)
     state.go(8)
 
 
 def restart():
+    """Forget all wizard answers."""
     for k in list(st.session_state):
         if k.startswith(PREFIX + "_") or k in ("wiz", "wiz_result"):
             del st.session_state[k]
 
 
 def welcome():
+    """Welcome screen with the step list and a Start button."""
     c.page_title("Guided Counselling", "Step-by-step consultation and diagnosis")
     left, right = st.columns([1, 2.2], gap="large")
     with left:
@@ -72,6 +77,7 @@ def welcome():
 
 
 def step_page(kb, step):
+    """One step: step list on the left, question cards on the right."""
     c.page_title("Guided Counselling", "Step-by-step consultation and diagnosis")
     wiz = state.wizard()
     left, right = st.columns([1, 2.2], gap="large")
@@ -104,6 +110,7 @@ def skip_text(q, answers, kb):
 
 
 def review(kb):
+    """Review screen: answers grouped by step, each with an Edit button."""
     c.page_title("Guided Counselling", "Step-by-step consultation and diagnosis")
     wiz = state.wizard()
     answers = wiz["answers"]
@@ -129,6 +136,7 @@ def review(kb):
 
 
 def render():
+    """Page entry point: show the welcome, a step, the review or the report."""
     kb = state.kb()
     wiz = state.wizard()
     step = wiz["step"]

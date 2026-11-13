@@ -51,6 +51,7 @@ def report_head(name):
 
 
 def profile_section(result, kb, technical):
+    """The Diagnosis section: band, aptitudes, conditions met or missed, checks."""
     p = result.profile
     c.section("Diagnosis")
     rows = []
@@ -75,6 +76,7 @@ def profile_section(result, kb, technical):
 
 
 def top_section(result, kb, technical):
+    """Recommended fields as a numbered list with confidence bars."""
     c.section("Recommended fields")
     for text in result.advice:
         c.warning_box(text)
@@ -99,6 +101,7 @@ def top_section(result, kb, technical):
 
 
 def not_eligible_section(result, kb):
+    """Collapsed list of fields the student is not eligible for, with RC07 messages."""
     rows = [(fid, e) for fid, e in result.eligibility.items() if e["status"] == "not_eligible"]
     if not rows and not result.like_but_not:
         return
@@ -110,6 +113,7 @@ def not_eligible_section(result, kb):
 
 
 def universities_section(result, kb, prefix):
+    """One filterable table of matching universities per recommended field."""
     if not result.top:
         return
     c.section("Matching universities")
@@ -166,6 +170,7 @@ def universities_section(result, kb, prefix):
 
 
 def outlook_section(result, kb):
+    """Job demand in Pakistan and abroad, with notes and sources."""
     if not result.job_outlook:
         return
     c.section("Job outlook")
@@ -183,6 +188,7 @@ def outlook_section(result, kb):
 
 
 def result_text(result, answers, kb):
+    """The report as plain text for the download button."""
     lines = ["Rahnuma — University Field Advisor", "", result.summary, ""]
     lines.append("Recommended fields:")
     for i, t in enumerate(result.top, 1):
@@ -209,6 +215,7 @@ def _f(v):
 
 
 def what_if(result, answers, kb, prefix, on_use, use_ask_if):
+    """Decision support: change a few answers and compare the result."""
     c.section("What if?")
     c.muted("Change a few answers and see what would change. Your saved answers stay the same unless you press 'Use these answers'.")
     k = f"{prefix}_wi"
@@ -242,6 +249,7 @@ def what_if(result, answers, kb, prefix, on_use, use_ask_if):
 
 
 def compare(before, after, kb):
+    """Fields gained or lost, CF changes and university counts before and after."""
     if after.status != "ok":
         c.warning_box("With these answers the result would be 'Insufficient data'.")
         return
