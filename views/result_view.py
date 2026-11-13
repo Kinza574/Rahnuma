@@ -1,4 +1,4 @@
-"""Shared result page (used by the wizard and Quick Diagnosis)."""
+"""Shared counselling report page (used by Guided Counselling and the Counsellor Desk)."""
 
 from datetime import date
 

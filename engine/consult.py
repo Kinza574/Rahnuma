@@ -31,7 +31,7 @@ class Result:
 def visible_questions(answers, kb, use_ask_if=True):
     """Questions whose ask_if is true for the earlier answers, in order.
 
-    Quick Diagnosis shows every question, so it passes use_ask_if=False and the
+    The Counsellor Desk shows every question, so it passes use_ask_if=False and the
     sanity rules (G1) catch answers that do not fit the stream.
     """
     wm = WorkingMemory()
@@ -53,6 +53,7 @@ def add_input(wm, q, answers, kb):
         elif value == "notsure":
             wm.add(qid, "notsure", kb.t("notsure_cf"), "input")
     elif q["type"] in ("number", "test"):
+        # a blank box is missing data, but 0 is a real answer
         if value is not None and value != "" and not answers.get(f"{qid}_not_taken"):
             wm.add(qid, float(value), 1.0, "input")
     elif q["type"] == "multiselect":

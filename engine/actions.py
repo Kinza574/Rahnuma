@@ -124,7 +124,7 @@ def _eligibility(act, rid, bind, match, cf, wm, kb):
         old = wm.get(name)
         meta = {"reasons": list(reasons), "plans": list(plans), "notes": act.get("notes", [])}
         if old is not None and status != "not_eligible" and old.value != "not_eligible":
-            # D2: the better status wins; same status keeps the higher CF; reasons merge
+            # the better status wins (eligible beats conditional); same status keeps the higher CF
             if STATUS_RANK[old.value] > STATUS_RANK[status]:
                 continue
             if STATUS_RANK[old.value] == STATUS_RANK[status]:

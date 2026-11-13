@@ -104,7 +104,7 @@ def test_trace_has_cf_calculations(results):
 
 
 def test_sanity_ignore_keeps_value_visible(kb, samples):
-    # Quick Diagnosis shows all questions, so an ICS student can type an MDCAT score.
+    # The Counsellor Desk shows all questions, so an ICS student can type an MDCAT score.
     a = dict(samples["Zara"], mdcat_pct=70, mdcat_pct_not_taken=False)
     r = run_consultation(a, kb, use_ask_if=False)
     assert any("MDCAT 70 ignored because your stream is ICS" in w for w in r.warnings)
