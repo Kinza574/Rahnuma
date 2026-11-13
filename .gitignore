@@ -5,3 +5,4 @@ __pycache__/
 screenshots/
 /*.pdf
 .DS_Store
+report/

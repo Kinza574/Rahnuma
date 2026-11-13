@@ -58,7 +58,7 @@ h1, h2, h3, h4 {{ font-family: {SERIF}; color: {INK}; letter-spacing: 0; }}
 .rn-cond {{ font-size: 0.82rem; border: 1px solid {ACCENT}; color: {ACCENT}; border-radius: 3px; padding: 0 0.35rem; margin-left: 0.4rem; }}
 .rn-note {{ background: {NOTE_BG}; border-left: 3px solid {GREY_LIGHT}; padding: 0.55rem 0.85rem; margin-bottom: 0.5rem; font-size: 0.92rem; }}
 .rn-tag {{ display: inline-block; border: 1px solid {BORDER}; border-radius: 3px; padding: 0 0.35rem; margin-right: 0.3rem; font-size: 0.78rem; color: {GREY_TEXT}; }}
-.rn-sample {{ font-size: 0.88rem; line-height: 1.35; min-height: 3.9em; }}
+.rn-sample {{ font-size: 0.88rem; line-height: 1.35; min-height: 4.6em; }}
 .rn-sample b {{ font-family: {SERIF}; font-size: 1rem; }}
 .rn-footer {{ border-top: 1px solid {BORDER}; margin-top: 3rem; padding-top: 0.8rem; color: {GREY_TEXT}; font-size: 0.84rem; }}
 
