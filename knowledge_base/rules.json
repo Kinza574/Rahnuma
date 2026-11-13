@@ -1,0 +1,2988 @@
+{
+ "version": 1,
+ "rules": [
+  {
+   "id": "DS01",
+   "group": "G0",
+   "group_name": "Data sufficiency",
+   "type": "compute",
+   "priority": 100,
+   "cf": 1.0,
+   "text": "IF stream is blank THEN add 'Intermediate / A-Level stream' to the missing list.",
+   "if": {
+    "fact": "stream",
+    "missing": true
+   },
+   "then": [
+    {
+     "add_missing": "Intermediate / A-Level stream"
+    }
+   ],
+   "asks": [
+    "stream"
+   ]
+  },
+  {
+   "id": "DS02",
+   "group": "G0",
+   "group_name": "Data sufficiency",
+   "type": "compute",
+   "priority": 100,
+   "cf": 1.0,
+   "text": "IF Inter % is blank or outside pct_min..pct_max THEN add 'Intermediate marks (%)' to the missing list.",
+   "if": {
+    "any": [
+     {
+      "fact": "inter_pct",
+      "missing": true
+     },
+     {
+      "fact": "inter_pct",
+      "lt": "@pct_min"
+     },
+     {
+      "fact": "inter_pct",
+      "gt": "@pct_max"
+     }
+    ]
+   },
+   "then": [
+    {
+     "add_missing": "Intermediate marks (%)"
+    }
+   ],
+   "asks": [
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "DS03",
+   "group": "G0",
+   "group_name": "Data sufficiency",
+   "type": "compute",
+   "priority": 100,
+   "cf": 1.0,
+   "text": "IF Matric % is blank or outside pct_min..pct_max THEN add 'Matric / O-Level marks (%)' to the missing list.",
+   "if": {
+    "any": [
+     {
+      "fact": "matric_pct",
+      "missing": true
+     },
+     {
+      "fact": "matric_pct",
+      "lt": "@pct_min"
+     },
+     {
+      "fact": "matric_pct",
+      "gt": "@pct_max"
+     }
+    ]
+   },
+   "then": [
+    {
+     "add_missing": "Matric / O-Level marks (%)"
+    }
+   ],
+   "asks": [
+    "matric_pct"
+   ]
+  },
+  {
+   "id": "DS04",
+   "group": "G0",
+   "group_name": "Data sufficiency",
+   "type": "compute",
+   "priority": 100,
+   "cf": 1.0,
+   "text": "IF budget is blank THEN add 'Budget' to the missing list.",
+   "if": {
+    "fact": "budget",
+    "missing": true
+   },
+   "then": [
+    {
+     "add_missing": "Budget"
+    }
+   ],
+   "asks": [
+    "budget"
+   ]
+  },
+  {
+   "id": "DS05",
+   "group": "G0",
+   "group_name": "Data sufficiency",
+   "type": "compute",
+   "priority": 100,
+   "cf": 1.0,
+   "text": "IF fewer than min_answered interest and skill questions are answered THEN add 'Interest and skills questions' to the missing list.",
+   "if": {
+    "fact": "answered_count",
+    "lt": "@min_answered"
+   },
+   "then": [
+    {
+     "add_missing": "Interest and skills questions"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "DS06",
+   "group": "G0",
+   "group_name": "Data sufficiency",
+   "type": "decision",
+   "priority": 99,
+   "cf": 1.0,
+   "text": "IF the missing list is not empty THEN the result is 'Insufficient data' and the engine HALTS.",
+   "if": {
+    "fact": "missing",
+    "exists": true
+   },
+   "then": [
+    {
+     "halt": true,
+     "status": "insufficient",
+     "text": "Insufficient data"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "SC01",
+   "group": "G1",
+   "group_name": "Sanity checks",
+   "type": "compute",
+   "priority": 90,
+   "cf": 1.0,
+   "text": "IF the gap between Inter % and Matric % is more than max_marks_gap points THEN warn the student to check the marks.",
+   "if": {
+    "fact": "marks_gap",
+    "gt": "@max_marks_gap"
+   },
+   "then": [
+    {
+     "warn": "Big gap between your Matric ({matric_pct}%) and Inter ({inter_pct}%) marks — please check them."
+    }
+   ],
+   "asks": [
+    "inter_pct",
+    "matric_pct"
+   ]
+  },
+  {
+   "id": "SC02",
+   "group": "G1",
+   "group_name": "Sanity checks",
+   "type": "compute",
+   "priority": 90,
+   "cf": 1.0,
+   "text": "IF an MDCAT score is entered and the stream is not Pre-Medical, OR an ECAT/NET score is entered and the stream is Commerce or Humanities THEN warn and ignore that score.",
+   "if": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "mdcat_pct",
+        "exists": true
+       },
+       {
+        "not": {
+         "fact": "stream",
+         "eq": "pre_med"
+        }
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "any": [
+         {
+          "fact": "ecat_pct",
+          "exists": true
+         },
+         {
+          "fact": "net_pct",
+          "exists": true
+         }
+        ]
+       },
+       {
+        "fact": "stream",
+        "in": [
+         "commerce",
+         "humanities"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "then": [
+    {
+     "ignore": "mdcat_pct",
+     "if": {
+      "not": {
+       "fact": "stream",
+       "eq": "pre_med"
+      }
+     },
+     "warn": "MDCAT {value} ignored because your stream is {stream}."
+    },
+    {
+     "ignore": "ecat_pct",
+     "if": {
+      "fact": "stream",
+      "in": [
+       "commerce",
+       "humanities"
+      ]
+     },
+     "warn": "ECAT {value} ignored because your stream is {stream}."
+    },
+    {
+     "ignore": "net_pct",
+     "if": {
+      "fact": "stream",
+      "in": [
+       "commerce",
+       "humanities"
+      ]
+     },
+     "warn": "NET {value} ignored because your stream is {stream}."
+    }
+   ],
+   "asks": [
+    "mdcat_pct",
+    "stream",
+    "ecat_pct",
+    "net_pct"
+   ]
+  },
+  {
+   "id": "SC03",
+   "group": "G1",
+   "group_name": "Sanity checks",
+   "type": "compute",
+   "priority": 90,
+   "cf": 1.0,
+   "text": "IF any test % is outside pct_min..pct_max, OR the SAT score is outside sat_min..sat_max THEN warn and treat that test as not taken.",
+   "if": {
+    "any": [
+     {
+      "any": [
+       {
+        "fact": "mdcat_pct",
+        "lt": "@pct_min"
+       },
+       {
+        "fact": "mdcat_pct",
+        "gt": "@pct_max"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "ecat_pct",
+        "lt": "@pct_min"
+       },
+       {
+        "fact": "ecat_pct",
+        "gt": "@pct_max"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "net_pct",
+        "lt": "@pct_min"
+       },
+       {
+        "fact": "net_pct",
+        "gt": "@pct_max"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "nat_pct",
+        "lt": "@pct_min"
+       },
+       {
+        "fact": "nat_pct",
+        "gt": "@pct_max"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "lat_pct",
+        "lt": "@pct_min"
+       },
+       {
+        "fact": "lat_pct",
+        "gt": "@pct_max"
+       }
+      ]
+     },
+     {
+      "fact": "sat_score",
+      "lt": "@sat_min"
+     },
+     {
+      "fact": "sat_score",
+      "gt": "@sat_max"
+     }
+    ]
+   },
+   "then": [
+    {
+     "ignore": "mdcat_pct",
+     "if": {
+      "any": [
+       {
+        "fact": "mdcat_pct",
+        "lt": "@pct_min"
+       },
+       {
+        "fact": "mdcat_pct",
+        "gt": "@pct_max"
+       }
+      ]
+     },
+     "warn": "MDCAT {value} ignored because it is outside {pct_min}–{pct_max}."
+    },
+    {
+     "ignore": "ecat_pct",
+     "if": {
+      "any": [
+       {
+        "fact": "ecat_pct",
+        "lt": "@pct_min"
+       },
+       {
+        "fact": "ecat_pct",
+        "gt": "@pct_max"
+       }
+      ]
+     },
+     "warn": "ECAT {value} ignored because it is outside {pct_min}–{pct_max}."
+    },
+    {
+     "ignore": "net_pct",
+     "if": {
+      "any": [
+       {
+        "fact": "net_pct",
+        "lt": "@pct_min"
+       },
+       {
+        "fact": "net_pct",
+        "gt": "@pct_max"
+       }
+      ]
+     },
+     "warn": "NET {value} ignored because it is outside {pct_min}–{pct_max}."
+    },
+    {
+     "ignore": "nat_pct",
+     "if": {
+      "any": [
+       {
+        "fact": "nat_pct",
+        "lt": "@pct_min"
+       },
+       {
+        "fact": "nat_pct",
+        "gt": "@pct_max"
+       }
+      ]
+     },
+     "warn": "NAT {value} ignored because it is outside {pct_min}–{pct_max}."
+    },
+    {
+     "ignore": "lat_pct",
+     "if": {
+      "any": [
+       {
+        "fact": "lat_pct",
+        "lt": "@pct_min"
+       },
+       {
+        "fact": "lat_pct",
+        "gt": "@pct_max"
+       }
+      ]
+     },
+     "warn": "LAT {value} ignored because it is outside {pct_min}–{pct_max}."
+    },
+    {
+     "ignore": "sat_score",
+     "if": {
+      "any": [
+       {
+        "fact": "sat_score",
+        "lt": "@sat_min"
+       },
+       {
+        "fact": "sat_score",
+        "gt": "@sat_max"
+       }
+      ]
+     },
+     "warn": "SAT {value} ignored because it is outside {sat_min}–{sat_max}."
+    }
+   ],
+   "asks": [
+    "mdcat_pct",
+    "ecat_pct",
+    "net_pct",
+    "nat_pct",
+    "lat_pct",
+    "sat_score"
+   ]
+  },
+  {
+   "id": "SC04",
+   "group": "G1",
+   "group_name": "Sanity checks",
+   "type": "compute",
+   "priority": 90,
+   "cf": 1.0,
+   "text": "IF women-only is Yes and gender is not Female THEN warn and ignore the women-only choice.",
+   "if": {
+    "all": [
+     {
+      "fact": "women_only",
+      "eq": "yes"
+     },
+     {
+      "not": {
+       "fact": "gender",
+       "eq": "female"
+      }
+     }
+    ]
+   },
+   "then": [
+    {
+     "ignore": "women_only",
+     "warn": "Women-only choice ({value}) ignored because gender is not Female."
+    }
+   ],
+   "asks": [
+    "women_only",
+    "gender"
+   ]
+  },
+  {
+   "id": "SC05",
+   "group": "G1",
+   "group_name": "Sanity checks",
+   "type": "compute",
+   "priority": 90,
+   "cf": 1.0,
+   "text": "IF only the Part-I result is available THEN marks_reliable has CF part1_cf and warn that the marks are an estimate.",
+   "if": {
+    "fact": "inter_status",
+    "eq": "part1"
+   },
+   "then": [
+    {
+     "assert": "marks_reliable",
+     "cf": "@part1_cf"
+    },
+    {
+     "warn": "Your marks are an estimate until your final result (Part-I only)."
+    }
+   ],
+   "asks": [
+    "inter_status"
+   ]
+  },
+  {
+   "id": "DF01",
+   "group": "G2",
+   "group_name": "Derived facts",
+   "type": "compute",
+   "priority": 80,
+   "cf": 1.0,
+   "text": "IF Inter % >= band_excellent THEN inter_band = Excellent.",
+   "if": {
+    "fact": "inter_pct",
+    "gte": "@band_excellent"
+   },
+   "then": [
+    {
+     "set": "inter_band",
+     "value": "Excellent"
+    }
+   ],
+   "asks": [
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "DF02",
+   "group": "G2",
+   "group_name": "Derived facts",
+   "type": "compute",
+   "priority": 80,
+   "cf": 1.0,
+   "text": "IF band_good <= Inter % < band_excellent THEN inter_band = Good.",
+   "if": {
+    "fact": "inter_pct",
+    "between": [
+     "@band_good",
+     "@band_excellent"
+    ]
+   },
+   "then": [
+    {
+     "set": "inter_band",
+     "value": "Good"
+    }
+   ],
+   "asks": [
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "DF03",
+   "group": "G2",
+   "group_name": "Derived facts",
+   "type": "compute",
+   "priority": 80,
+   "cf": 1.0,
+   "text": "IF band_average <= Inter % < band_good THEN inter_band = Average.",
+   "if": {
+    "fact": "inter_pct",
+    "between": [
+     "@band_average",
+     "@band_good"
+    ]
+   },
+   "then": [
+    {
+     "set": "inter_band",
+     "value": "Average"
+    }
+   ],
+   "asks": [
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "DF04",
+   "group": "G2",
+   "group_name": "Derived facts",
+   "type": "compute",
+   "priority": 80,
+   "cf": 1.0,
+   "text": "IF band_pass <= Inter % < band_average THEN inter_band = Low.",
+   "if": {
+    "fact": "inter_pct",
+    "between": [
+     "@band_pass",
+     "@band_average"
+    ]
+   },
+   "then": [
+    {
+     "set": "inter_band",
+     "value": "Low"
+    }
+   ],
+   "asks": [
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "DF05",
+   "group": "G2",
+   "group_name": "Derived facts",
+   "type": "compute",
+   "priority": 80,
+   "cf": 1.0,
+   "text": "IF Inter % < band_pass THEN inter_band = Very low.",
+   "if": {
+    "fact": "inter_pct",
+    "lt": "@band_pass"
+   },
+   "then": [
+    {
+     "set": "inter_band",
+     "value": "Very low"
+    }
+   ],
+   "asks": [
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "DF06",
+   "group": "G2",
+   "group_name": "Derived facts",
+   "type": "compute",
+   "priority": 80,
+   "cf": 1.0,
+   "text": "IF MDCAT % >= mdcat_pass_mbbs THEN the MBBS MDCAT pass mark is met.",
+   "if": {
+    "fact": "mdcat_pct",
+    "gte": "@mdcat_pass_mbbs"
+   },
+   "then": [
+    {
+     "assert": "mdcat_mbbs_pass"
+    }
+   ],
+   "asks": [
+    "mdcat_pct"
+   ]
+  },
+  {
+   "id": "DF07",
+   "group": "G2",
+   "group_name": "Derived facts",
+   "type": "compute",
+   "priority": 80,
+   "cf": 1.0,
+   "text": "IF MDCAT % >= mdcat_pass_bds THEN the BDS MDCAT pass mark is met.",
+   "if": {
+    "fact": "mdcat_pct",
+    "gte": "@mdcat_pass_bds"
+   },
+   "then": [
+    {
+     "assert": "mdcat_bds_pass"
+    }
+   ],
+   "asks": [
+    "mdcat_pct"
+   ]
+  },
+  {
+   "id": "DF08",
+   "group": "G2",
+   "group_name": "Derived facts",
+   "type": "compute",
+   "priority": 80,
+   "cf": 1.0,
+   "text": "IF the final Inter result is available THEN marks_reliable (CF 1.0).",
+   "if": {
+    "fact": "inter_status",
+    "eq": "final"
+   },
+   "then": [
+    {
+     "assert": "marks_reliable"
+    }
+   ],
+   "asks": [
+    "inter_status"
+   ]
+  },
+  {
+   "id": "AP01",
+   "group": "G3",
+   "group_name": "Aptitude profiling",
+   "type": "compute",
+   "priority": 70,
+   "cf": 0.9,
+   "text": "IF the student likes Maths AND is good at solving problems THEN apt_analytical (CF 0.9).",
+   "if": {
+    "all": [
+     {
+      "fact": "I01",
+      "is": "yes"
+     },
+     {
+      "fact": "P01",
+      "is": "yes"
+     }
+    ]
+   },
+   "then": [
+    {
+     "assert": "apt_analytical"
+    }
+   ],
+   "asks": [
+    "I01",
+    "P01"
+   ]
+  },
+  {
+   "id": "AP02",
+   "group": "G3",
+   "group_name": "Aptitude profiling",
+   "type": "compute",
+   "priority": 70,
+   "cf": 0.85,
+   "text": "IF the student likes Biology THEN apt_biology (CF 0.85).",
+   "if": {
+    "fact": "I02",
+    "is": "yes"
+   },
+   "then": [
+    {
+     "assert": "apt_biology"
+    }
+   ],
+   "asks": [
+    "I02"
+   ]
+  },
+  {
+   "id": "AP03",
+   "group": "G3",
+   "group_name": "Aptitude profiling",
+   "type": "compute",
+   "priority": 70,
+   "cf": 0.9,
+   "text": "IF the student likes computers / coding THEN apt_computing (CF 0.9).",
+   "if": {
+    "fact": "I04",
+    "is": "yes"
+   },
+   "then": [
+    {
+     "assert": "apt_computing"
+    }
+   ],
+   "asks": [
+    "I04"
+   ]
+  },
+  {
+   "id": "AP04",
+   "group": "G3",
+   "group_name": "Aptitude profiling",
+   "type": "compute",
+   "priority": 70,
+   "cf": 0.85,
+   "text": "IF the student likes electronics AND Maths THEN apt_electrical (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "I05",
+      "is": "yes"
+     },
+     {
+      "fact": "I01",
+      "is": "yes"
+     }
+    ]
+   },
+   "then": [
+    {
+     "assert": "apt_electrical"
+    }
+   ],
+   "asks": [
+    "I05",
+    "I01"
+   ]
+  },
+  {
+   "id": "AP05",
+   "group": "G3",
+   "group_name": "Aptitude profiling",
+   "type": "compute",
+   "priority": 70,
+   "cf": 0.85,
+   "text": "IF the student likes machines AND Maths THEN apt_mechanical (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "I06",
+      "is": "yes"
+     },
+     {
+      "fact": "I01",
+      "is": "yes"
+     }
+    ]
+   },
+   "then": [
+    {
+     "assert": "apt_mechanical"
+    }
+   ],
+   "asks": [
+    "I06",
+    "I01"
+   ]
+  },
+  {
+   "id": "AP06",
+   "group": "G3",
+   "group_name": "Aptitude profiling",
+   "type": "compute",
+   "priority": 70,
+   "cf": 0.85,
+   "text": "IF the student likes buildings AND Maths THEN apt_civil (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "I07",
+      "is": "yes"
+     },
+     {
+      "fact": "I01",
+      "is": "yes"
+     }
+    ]
+   },
+   "then": [
+    {
+     "assert": "apt_civil"
+    }
+   ],
+   "asks": [
+    "I07",
+    "I01"
+   ]
+  },
+  {
+   "id": "AP07",
+   "group": "G3",
+   "group_name": "Aptitude profiling",
+   "type": "compute",
+   "priority": 70,
+   "cf": 0.9,
+   "text": "IF the student likes drawing AND is creative THEN apt_creative (CF 0.9).",
+   "if": {
+    "all": [
+     {
+      "fact": "I08",
+      "is": "yes"
+     },
+     {
+      "fact": "P02",
+      "is": "yes"
+     }
+    ]
+   },
+   "then": [
+    {
+     "assert": "apt_creative"
+    }
+   ],
+   "asks": [
+    "I08",
+    "P02"
+   ]
+  },
+  {
+   "id": "AP08",
+   "group": "G3",
+   "group_name": "Aptitude profiling",
+   "type": "compute",
+   "priority": 70,
+   "cf": 0.85,
+   "text": "IF the student likes fashion/textiles AND is creative THEN apt_fashion (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "I09",
+      "is": "yes"
+     },
+     {
+      "fact": "P02",
+      "is": "yes"
+     }
+    ]
+   },
+   "then": [
+    {
+     "assert": "apt_fashion"
+    }
+   ],
+   "asks": [
+    "I09",
+    "P02"
+   ]
+  },
+  {
+   "id": "AP09",
+   "group": "G3",
+   "group_name": "Aptitude profiling",
+   "type": "compute",
+   "priority": 70,
+   "cf": 0.8,
+   "text": "IF the student likes business/money THEN apt_business (CF 0.8).",
+   "if": {
+    "fact": "I10",
+    "is": "yes"
+   },
+   "then": [
+    {
+     "assert": "apt_business"
+    }
+   ],
+   "asks": [
+    "I10"
+   ]
+  },
+  {
+   "id": "AP10",
+   "group": "G3",
+   "group_name": "Aptitude profiling",
+   "type": "compute",
+   "priority": 70,
+   "cf": 0.85,
+   "text": "IF the student likes writing/media AND is a confident communicator THEN apt_media (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "I11",
+      "is": "yes"
+     },
+     {
+      "fact": "P03",
+      "is": "yes"
+     }
+    ]
+   },
+   "then": [
+    {
+     "assert": "apt_media"
+    }
+   ],
+   "asks": [
+    "I11",
+    "P03"
+   ]
+  },
+  {
+   "id": "AP11",
+   "group": "G3",
+   "group_name": "Aptitude profiling",
+   "type": "compute",
+   "priority": 70,
+   "cf": 0.85,
+   "text": "IF the student likes law/debating AND is a confident communicator THEN apt_legal (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "I12",
+      "is": "yes"
+     },
+     {
+      "fact": "P03",
+      "is": "yes"
+     }
+    ]
+   },
+   "then": [
+    {
+     "assert": "apt_legal"
+    }
+   ],
+   "asks": [
+    "I12",
+    "P03"
+   ]
+  },
+  {
+   "id": "AP12",
+   "group": "G3",
+   "group_name": "Aptitude profiling",
+   "type": "compute",
+   "priority": 70,
+   "cf": 0.8,
+   "text": "IF the student is interested in how people think and behave THEN apt_people (CF 0.8).",
+   "if": {
+    "fact": "I13",
+    "is": "yes"
+   },
+   "then": [
+    {
+     "assert": "apt_people"
+    }
+   ],
+   "asks": [
+    "I13"
+   ]
+  },
+  {
+   "id": "AP13",
+   "group": "G3",
+   "group_name": "Aptitude profiling",
+   "type": "compute",
+   "priority": 70,
+   "cf": 0.85,
+   "text": "IF the student likes caring for people AND is patient THEN apt_caring (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "I14",
+      "is": "yes"
+     },
+     {
+      "fact": "P05",
+      "is": "yes"
+     }
+    ]
+   },
+   "then": [
+    {
+     "assert": "apt_caring"
+    }
+   ],
+   "asks": [
+    "I14",
+    "P05"
+   ]
+  },
+  {
+   "id": "AP14",
+   "group": "G3",
+   "group_name": "Aptitude profiling",
+   "type": "compute",
+   "priority": 70,
+   "cf": 0.9,
+   "text": "IF the student is comfortable in hospitals AND ready for 5+ years of study THEN clinical_ready (CF 0.9).",
+   "if": {
+    "all": [
+     {
+      "fact": "P06",
+      "is": "yes"
+     },
+     {
+      "fact": "P07",
+      "is": "yes"
+     }
+    ]
+   },
+   "then": [
+    {
+     "assert": "clinical_ready"
+    }
+   ],
+   "asks": [
+    "P06",
+    "P07"
+   ]
+  },
+  {
+   "id": "EL01",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "compute",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF stream is Pre-Medical AND Inter % >= med_min (and marks are reliable) THEN med_academic_ok.",
+   "if": {
+    "all": [
+     {
+      "fact": "stream",
+      "eq": "pre_med"
+     },
+     {
+      "fact": "inter_pct",
+      "gte": "@med_min"
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "assert": "med_academic_ok"
+    }
+   ],
+   "asks": [
+    "stream",
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "EL02",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF med_academic_ok AND the MBBS MDCAT pass mark is met THEN MBBS is eligible.",
+   "if": {
+    "all": [
+     {
+      "fact": "med_academic_ok",
+      "exists": true
+     },
+     {
+      "fact": "mdcat_mbbs_pass",
+      "exists": true
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "mbbs"
+     ],
+     "status": "eligible"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "EL03",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF med_academic_ok AND the BDS MDCAT pass mark is met THEN BDS is eligible.",
+   "if": {
+    "all": [
+     {
+      "fact": "med_academic_ok",
+      "exists": true
+     },
+     {
+      "fact": "mdcat_bds_pass",
+      "exists": true
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "bds"
+     ],
+     "status": "eligible"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "EL04",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF med_academic_ok AND MDCAT is not taken yet THEN MBBS and BDS are conditional: after passing MDCAT (MBBS >= mdcat_pass_mbbs%, BDS >= mdcat_pass_bds%).",
+   "if": {
+    "all": [
+     {
+      "fact": "med_academic_ok",
+      "exists": true
+     },
+     {
+      "fact": "mdcat_pct",
+      "missing": true
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "mbbs",
+      "bds"
+     ],
+     "status": "conditional",
+     "reason": "after passing MDCAT (MBBS {mdcat_pass_mbbs}% or more, BDS {mdcat_pass_bds}% or more)",
+     "plan": "Register for MDCAT and aim for at least {mdcat_pass_mbbs}%."
+    }
+   ],
+   "asks": [
+    "mdcat_pct"
+   ]
+  },
+  {
+   "id": "EL05",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF stream is Pre-Medical AND Inter % >= pharmd_min THEN Pharm-D is eligible.",
+   "if": {
+    "all": [
+     {
+      "fact": "stream",
+      "eq": "pre_med"
+     },
+     {
+      "fact": "inter_pct",
+      "gte": "@pharmd_min"
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "pharmd"
+     ],
+     "status": "eligible"
+    }
+   ],
+   "asks": [
+    "stream",
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "EL06",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF stream is Pre-Medical AND Inter % >= dpt_min THEN DPT is eligible.",
+   "if": {
+    "all": [
+     {
+      "fact": "stream",
+      "eq": "pre_med"
+     },
+     {
+      "fact": "inter_pct",
+      "gte": "@dpt_min"
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "dpt"
+     ],
+     "status": "eligible"
+    }
+   ],
+   "asks": [
+    "stream",
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "EL07",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF stream is Pre-Medical AND Inter % >= nursing_min THEN Nursing (BSN) is eligible.",
+   "if": {
+    "all": [
+     {
+      "fact": "stream",
+      "eq": "pre_med"
+     },
+     {
+      "fact": "inter_pct",
+      "gte": "@nursing_min"
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "nursing"
+     ],
+     "status": "eligible"
+    }
+   ],
+   "asks": [
+    "stream",
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "EL08",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF stream is Pre-Engineering, OR ICS with Physics, OR Pre-Medical with Additional Maths, AND Inter % >= eng_min THEN Electrical, Mechanical and Civil Engineering are eligible.",
+   "if": {
+    "all": [
+     {
+      "any": [
+       {
+        "fact": "stream",
+        "eq": "pre_eng"
+       },
+       {
+        "all": [
+         {
+          "fact": "stream",
+          "eq": "ics"
+         },
+         {
+          "fact": "has_physics",
+          "is": "yes"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "stream",
+          "eq": "pre_med"
+         },
+         {
+          "fact": "add_maths",
+          "is": "yes"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "fact": "inter_pct",
+      "gte": "@eng_min"
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "ee",
+      "me",
+      "civil"
+     ],
+     "status": "eligible",
+     "notes": [
+      "Entry test: ECAT / university test"
+     ]
+    }
+   ],
+   "asks": [
+    "stream",
+    "has_physics",
+    "add_maths",
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "EL09",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF stream is Pre-Medical AND Additional Maths is not Yes AND Inter % >= eng_min THEN EE, ME and Civil are conditional (PEC 8-week condensed Mathematics programme).",
+   "if": {
+    "all": [
+     {
+      "fact": "stream",
+      "eq": "pre_med"
+     },
+     {
+      "not": {
+       "fact": "add_maths",
+       "eq": "yes"
+      }
+     },
+     {
+      "fact": "inter_pct",
+      "gte": "@eng_min"
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "ee",
+      "me",
+      "civil"
+     ],
+     "status": "conditional",
+     "reason": "PEC lets Pre-Medical students in after an 8-week condensed Mathematics programme",
+     "plan": "Plan for the 8-week condensed Mathematics programme required by PEC."
+    }
+   ],
+   "asks": [
+    "stream",
+    "add_maths",
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "EL10",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF the student has a Maths background (Pre-Eng, ICS, Pre-Med with Additional Maths, or Maths at Inter) AND Inter % >= cs_min THEN CS and SE are eligible.",
+   "if": {
+    "all": [
+     {
+      "any": [
+       {
+        "fact": "stream",
+        "eq": "pre_eng"
+       },
+       {
+        "fact": "stream",
+        "eq": "ics"
+       },
+       {
+        "all": [
+         {
+          "fact": "stream",
+          "eq": "pre_med"
+         },
+         {
+          "fact": "add_maths",
+          "is": "yes"
+         }
+        ]
+       },
+       {
+        "fact": "has_maths",
+        "is": "yes"
+       }
+      ]
+     },
+     {
+      "fact": "inter_pct",
+      "gte": "@cs_min"
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "cs",
+      "se"
+     ],
+     "status": "eligible"
+    }
+   ],
+   "asks": [
+    "stream",
+    "add_maths",
+    "has_maths",
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "EL11",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF the student has no Maths background AND Inter % >= cs_min THEN CS and SE are conditional (6 credit hours of Maths deficiency courses in year 1).",
+   "if": {
+    "all": [
+     {
+      "not": {
+       "any": [
+        {
+         "fact": "stream",
+         "eq": "pre_eng"
+        },
+        {
+         "fact": "stream",
+         "eq": "ics"
+        },
+        {
+         "all": [
+          {
+           "fact": "stream",
+           "eq": "pre_med"
+          },
+          {
+           "fact": "add_maths",
+           "is": "yes"
+          }
+         ]
+        },
+        {
+         "fact": "has_maths",
+         "is": "yes"
+        }
+       ]
+      }
+     },
+     {
+      "fact": "inter_pct",
+      "gte": "@cs_min"
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "cs",
+      "se"
+     ],
+     "status": "conditional",
+     "reason": "you must pass 6 credit hours of Mathematics deficiency courses in the first year",
+     "plan": "Plan for the Mathematics deficiency courses in the first year."
+    }
+   ],
+   "asks": [
+    "stream",
+    "add_maths",
+    "has_maths",
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "EL12",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF stream is in arch_streams AND Inter % >= arch_min THEN Architecture is eligible (drawing/aptitude test needed).",
+   "if": {
+    "all": [
+     {
+      "fact": "stream",
+      "in": "@arch_streams"
+     },
+     {
+      "fact": "inter_pct",
+      "gte": "@arch_min"
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "arch"
+     ],
+     "status": "eligible",
+     "notes": [
+      "Drawing / aptitude test"
+     ]
+    }
+   ],
+   "asks": [
+    "stream",
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "EL13",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF Inter % >= design_min THEN Fashion/Textile Design and Fine Arts are eligible (portfolio/admission test).",
+   "if": {
+    "all": [
+     {
+      "fact": "inter_pct",
+      "gte": "@design_min"
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "fashion",
+      "finearts"
+     ],
+     "status": "eligible",
+     "notes": [
+      "Portfolio / drawing test"
+     ]
+    }
+   ],
+   "asks": [
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "EL14",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF Inter % >= business_min THEN BBA and Accounting & Finance are eligible.",
+   "if": {
+    "all": [
+     {
+      "fact": "inter_pct",
+      "gte": "@business_min"
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "bba",
+      "af"
+     ],
+     "status": "eligible"
+    }
+   ],
+   "asks": [
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "EL15",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF Inter % >= law_min AND LAT >= lat_pass THEN LLB is eligible.",
+   "if": {
+    "all": [
+     {
+      "fact": "inter_pct",
+      "gte": "@law_min"
+     },
+     {
+      "fact": "lat_pct",
+      "gte": "@lat_pass"
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "law"
+     ],
+     "status": "eligible"
+    }
+   ],
+   "asks": [
+    "inter_pct",
+    "lat_pct"
+   ]
+  },
+  {
+   "id": "EL16",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF Inter % >= law_min AND LAT is not taken yet THEN LLB is conditional: after passing HEC LAT (>= lat_pass/100).",
+   "if": {
+    "all": [
+     {
+      "fact": "inter_pct",
+      "gte": "@law_min"
+     },
+     {
+      "fact": "lat_pct",
+      "missing": true
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "law"
+     ],
+     "status": "conditional",
+     "reason": "after passing HEC LAT ({lat_pass}/100 or more)",
+     "plan": "Register for HEC LAT and aim for at least {lat_pass}/100."
+    }
+   ],
+   "asks": [
+    "inter_pct",
+    "lat_pct"
+   ]
+  },
+  {
+   "id": "EL17",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF Inter % >= socsci_min THEN Media Studies and Psychology are eligible.",
+   "if": {
+    "all": [
+     {
+      "fact": "inter_pct",
+      "gte": "@socsci_min"
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "media",
+      "psych"
+     ],
+     "status": "eligible"
+    }
+   ],
+   "asks": [
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "EL18",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 60,
+   "cf": 1.0,
+   "text": "IF an MDCAT score is entered AND med_academic_ok AND the BDS pass mark is not met THEN MBBS and BDS are not eligible (MDCAT below the pass mark).",
+   "if": {
+    "all": [
+     {
+      "fact": "mdcat_pct",
+      "exists": true
+     },
+     {
+      "fact": "med_academic_ok",
+      "exists": true
+     },
+     {
+      "not": {
+       "fact": "mdcat_bds_pass",
+       "exists": true
+      }
+     },
+     {
+      "fact": "marks_reliable",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "eligibility": [
+      "mbbs",
+      "bds"
+     ],
+     "status": "not_eligible",
+     "reason": "MDCAT {mdcat_pct}% is below the pass mark (MBBS {mdcat_pass_mbbs}%, BDS {mdcat_pass_bds}%)."
+    }
+   ],
+   "asks": [
+    "mdcat_pct"
+   ]
+  },
+  {
+   "id": "EL19",
+   "group": "G4",
+   "group_name": "Eligibility",
+   "type": "decision",
+   "priority": 59,
+   "cf": 1.0,
+   "text": "FOR EACH field: IF the field has no eligibility fact after the rules above THEN it is not eligible; the reason comes from the field's requirements and the student's data.",
+   "if": {
+    "fact": "elig.$F",
+    "missing": true
+   },
+   "then": [
+    {
+     "eligibility": "$F",
+     "status": "not_eligible"
+    }
+   ],
+   "for_each": "field",
+   "asks": []
+  },
+  {
+   "id": "FM01",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.9,
+   "text": "IF cs is eligible or conditional AND the student has computing AND analytical aptitude THEN suit.cs (CF 0.9).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.cs",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_computing",
+      "exists": true
+     },
+     {
+      "fact": "apt_analytical",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "cs"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "FM02",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.5,
+   "text": "IF cs is eligible or conditional AND the student has computing aptitude but NO analytical aptitude THEN suit.cs (CF 0.5).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.cs",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_computing",
+      "exists": true
+     },
+     {
+      "not": {
+       "fact": "apt_analytical",
+       "exists": true
+      }
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "cs"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "FM03",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.8,
+   "text": "IF se is eligible or conditional AND the student has computing aptitude AND likes teamwork THEN suit.se (CF 0.8).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.se",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_computing",
+      "exists": true
+     },
+     {
+      "fact": "P04",
+      "is": "yes"
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "se"
+    }
+   ],
+   "asks": [
+    "P04"
+   ]
+  },
+  {
+   "id": "FM04",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.85,
+   "text": "IF ee is eligible or conditional AND the student has electrical aptitude THEN suit.ee (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.ee",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_electrical",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "ee"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "FM05",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.85,
+   "text": "IF me is eligible or conditional AND the student has mechanical aptitude THEN suit.me (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.me",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_mechanical",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "me"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "FM06",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.85,
+   "text": "IF civil is eligible or conditional AND the student has civil aptitude THEN suit.civil (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.civil",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_civil",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "civil"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "FM07",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.9,
+   "text": "IF mbbs is eligible or conditional AND the student has biology AND caring aptitude AND clinical readiness THEN suit.mbbs (CF 0.9).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.mbbs",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_biology",
+      "exists": true
+     },
+     {
+      "fact": "apt_caring",
+      "exists": true
+     },
+     {
+      "fact": "clinical_ready",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "mbbs"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "FM08",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.75,
+   "text": "IF bds is eligible or conditional AND the student has biology aptitude AND clinical readiness THEN suit.bds (CF 0.75).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.bds",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_biology",
+      "exists": true
+     },
+     {
+      "fact": "clinical_ready",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "bds"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "FM09",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.85,
+   "text": "IF pharmd is eligible or conditional AND the student has biology aptitude AND likes Chemistry THEN suit.pharmd (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.pharmd",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_biology",
+      "exists": true
+     },
+     {
+      "fact": "I03",
+      "is": "yes"
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "pharmd"
+    }
+   ],
+   "asks": [
+    "I03"
+   ]
+  },
+  {
+   "id": "FM10",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.75,
+   "text": "IF dpt is eligible or conditional AND the student has biology AND caring aptitude THEN suit.dpt (CF 0.75).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.dpt",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_biology",
+      "exists": true
+     },
+     {
+      "fact": "apt_caring",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "dpt"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "FM11",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.8,
+   "text": "IF nursing is eligible or conditional AND the student has caring aptitude AND clinical readiness THEN suit.nursing (CF 0.8).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.nursing",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_caring",
+      "exists": true
+     },
+     {
+      "fact": "clinical_ready",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "nursing"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "FM12",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.9,
+   "text": "IF arch is eligible or conditional AND the student has creative aptitude AND likes buildings THEN suit.arch (CF 0.9).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.arch",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_creative",
+      "exists": true
+     },
+     {
+      "fact": "I07",
+      "is": "yes"
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "arch"
+    }
+   ],
+   "asks": [
+    "I07"
+   ]
+  },
+  {
+   "id": "FM13",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.85,
+   "text": "IF fashion is eligible or conditional AND the student has fashion aptitude THEN suit.fashion (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.fashion",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_fashion",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "fashion"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "FM14",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.75,
+   "text": "IF finearts is eligible or conditional AND the student has creative aptitude THEN suit.finearts (CF 0.75).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.finearts",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_creative",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "finearts"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "FM15",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.85,
+   "text": "IF bba is eligible or conditional AND the student has business aptitude AND likes teamwork THEN suit.bba (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.bba",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_business",
+      "exists": true
+     },
+     {
+      "fact": "P04",
+      "is": "yes"
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "bba"
+    }
+   ],
+   "asks": [
+    "P04"
+   ]
+  },
+  {
+   "id": "FM16",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.85,
+   "text": "IF af is eligible or conditional AND the student has business AND analytical aptitude THEN suit.af (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.af",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_business",
+      "exists": true
+     },
+     {
+      "fact": "apt_analytical",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "af"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "FM17",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.85,
+   "text": "IF media is eligible or conditional AND the student has media aptitude THEN suit.media (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.media",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_media",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "media"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "FM18",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.85,
+   "text": "IF law is eligible or conditional AND the student has legal aptitude THEN suit.law (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.law",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_legal",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "law"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "FM19",
+   "group": "G5",
+   "group_name": "Field match",
+   "type": "compute",
+   "priority": 50,
+   "cf": 0.85,
+   "text": "IF psych is eligible or conditional AND the student has people AND caring aptitude THEN suit.psych (CF 0.85).",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.psych",
+      "in": [
+       "eligible",
+       "conditional"
+      ]
+     },
+     {
+      "fact": "apt_people",
+      "exists": true
+     },
+     {
+      "fact": "apt_caring",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "psych"
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "MK01",
+   "group": "G6",
+   "group_name": "Job market",
+   "type": "compute",
+   "priority": 40,
+   "cf": "@market_high_cf",
+   "text": "FOR EACH field: IF suit.F exists AND Pakistan job demand for F is high THEN add agreeing evidence market_high_cf to suit.F.",
+   "if": {
+    "all": [
+     {
+      "fact": "suit.$F",
+      "exists": true,
+      "use_cf": false
+     },
+     {
+      "kb": "market.pk",
+      "eq": "high"
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "$F"
+    }
+   ],
+   "for_each": "field",
+   "asks": []
+  },
+  {
+   "id": "MK02",
+   "group": "G6",
+   "group_name": "Job market",
+   "type": "compute",
+   "priority": 40,
+   "cf": "@abroad_cf",
+   "text": "FOR EACH field: IF suit.F exists AND the student wants to work abroad AND abroad demand for F is high THEN add evidence abroad_cf (x the answer's CF) to suit.F.",
+   "if": {
+    "all": [
+     {
+      "fact": "suit.$F",
+      "exists": true,
+      "use_cf": false
+     },
+     {
+      "fact": "P08",
+      "is": "yes"
+     },
+     {
+      "kb": "market.abroad",
+      "eq": "high"
+     }
+    ]
+   },
+   "then": [
+    {
+     "suit": "$F"
+    }
+   ],
+   "for_each": "field",
+   "asks": [
+    "P08"
+   ]
+  },
+  {
+   "id": "MK03",
+   "group": "G6",
+   "group_name": "Job market",
+   "type": "compute",
+   "priority": 40,
+   "cf": 1.0,
+   "text": "FOR EACH field: IF suit.F exists AND Pakistan job demand for F is low THEN add a note (CF unchanged).",
+   "if": {
+    "all": [
+     {
+      "fact": "suit.$F",
+      "exists": true,
+      "use_cf": false
+     },
+     {
+      "kb": "market.pk",
+      "eq": "low"
+     }
+    ]
+   },
+   "then": [
+    {
+     "note": "Fewer jobs in Pakistan for {field} right now — see the job outlook."
+    }
+   ],
+   "for_each": "field",
+   "asks": []
+  },
+  {
+   "id": "UN01",
+   "group": "G7",
+   "group_name": "University matching",
+   "type": "decision",
+   "priority": 30,
+   "cf": 1.0,
+   "text": "FOR EACH field: IF suit.F >= min_show_cf THEN list the universities offering F (women's universities are left out for male students) and tag each 'required test taken / not yet'.",
+   "if": {
+    "fact": "suit.$F",
+    "gte": "@min_show_cf",
+    "use_cf": false
+   },
+   "then": [
+    {
+     "uni": "candidates"
+    }
+   ],
+   "for_each": "field",
+   "asks": [
+    "gender"
+   ]
+  },
+  {
+   "id": "UN02",
+   "group": "G7",
+   "group_name": "University matching",
+   "type": "decision",
+   "priority": 30,
+   "cf": 1.0,
+   "text": "FOR EACH field: IF Inter % is below an offering's minimum % THEN remove it (strict) and record the reason.",
+   "if": {
+    "all": [
+     {
+      "fact": "unis.$F",
+      "exists": true,
+      "use_cf": false
+     },
+     {
+      "fact": "inter_pct",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "uni": "min_pct"
+    }
+   ],
+   "for_each": "field",
+   "asks": [
+    "inter_pct"
+   ]
+  },
+  {
+   "id": "UN03",
+   "group": "G7",
+   "group_name": "University matching",
+   "type": "decision",
+   "priority": 30,
+   "cf": 1.0,
+   "text": "FOR EACH field: IF budget is Low / Medium / High THEN keep fee band low / low+medium / all.",
+   "if": {
+    "all": [
+     {
+      "fact": "unis.$F",
+      "exists": true,
+      "use_cf": false
+     },
+     {
+      "fact": "budget",
+      "exists": true
+     }
+    ]
+   },
+   "then": [
+    {
+     "uni": "budget"
+    }
+   ],
+   "for_each": "field",
+   "asks": [
+    "budget"
+   ]
+  },
+  {
+   "id": "UN04",
+   "group": "G7",
+   "group_name": "University matching",
+   "type": "decision",
+   "priority": 30,
+   "cf": 1.0,
+   "text": "FOR EACH field: IF relocate is not Yes THEN keep only the home city and preferred cities (Not sure: keep others, tagged 'outside your cities').",
+   "if": {
+    "all": [
+     {
+      "fact": "unis.$F",
+      "exists": true,
+      "use_cf": false
+     },
+     {
+      "not": {
+       "fact": "relocate",
+       "eq": "yes"
+      }
+     }
+    ]
+   },
+   "then": [
+    {
+     "uni": "city"
+    }
+   ],
+   "for_each": "field",
+   "asks": [
+    "relocate",
+    "home_city",
+    "pref_cities"
+   ]
+  },
+  {
+   "id": "UN05",
+   "group": "G7",
+   "group_name": "University matching",
+   "type": "decision",
+   "priority": 30,
+   "cf": 1.0,
+   "text": "FOR EACH field: IF hostel is Yes THEN keep only universities with a hostel (Not sure: tag 'check hostel').",
+   "if": {
+    "all": [
+     {
+      "fact": "unis.$F",
+      "exists": true,
+      "use_cf": false
+     },
+     {
+      "fact": "hostel",
+      "is": "yes"
+     }
+    ]
+   },
+   "then": [
+    {
+     "uni": "hostel"
+    }
+   ],
+   "for_each": "field",
+   "asks": [
+    "hostel"
+   ]
+  },
+  {
+   "id": "UN06",
+   "group": "G7",
+   "group_name": "University matching",
+   "type": "decision",
+   "priority": 30,
+   "cf": 1.0,
+   "text": "FOR EACH field: IF women-only is Yes THEN keep only women's universities (Not sure: list them first).",
+   "if": {
+    "all": [
+     {
+      "fact": "unis.$F",
+      "exists": true,
+      "use_cf": false
+     },
+     {
+      "fact": "women_only",
+      "is": "yes"
+     }
+    ]
+   },
+   "then": [
+    {
+     "uni": "women"
+    }
+   ],
+   "for_each": "field",
+   "asks": [
+    "women_only"
+   ]
+  },
+  {
+   "id": "UN07",
+   "group": "G7",
+   "group_name": "University matching",
+   "type": "decision",
+   "priority": 30,
+   "cf": 1.0,
+   "text": "FOR EACH field: IF sector is not Either THEN keep only that sector.",
+   "if": {
+    "all": [
+     {
+      "fact": "unis.$F",
+      "exists": true,
+      "use_cf": false
+     },
+     {
+      "fact": "sector",
+      "in": [
+       "public",
+       "private"
+      ]
+     }
+    ]
+   },
+   "then": [
+    {
+     "uni": "sector"
+    }
+   ],
+   "for_each": "field",
+   "asks": [
+    "sector"
+   ]
+  },
+  {
+   "id": "UN08",
+   "group": "G7",
+   "group_name": "University matching",
+   "type": "decision",
+   "priority": 29,
+   "cf": 1.0,
+   "text": "FOR EACH field: IF the list is empty after UN02-UN07 THEN relax city first, then budget (never the minimum %), and say what was relaxed.",
+   "if": {
+    "fact": "unis.$F",
+    "empty": true,
+    "use_cf": false
+   },
+   "then": [
+    {
+     "uni": "relax"
+    }
+   ],
+   "for_each": "field",
+   "asks": []
+  },
+  {
+   "id": "RC01",
+   "group": "G8",
+   "group_name": "Final recommendation",
+   "type": "decision",
+   "priority": 20,
+   "cf": 1.0,
+   "text": "IF the highest suitability CF >= min_show_cf THEN it is recommendation #1.",
+   "if": {
+    "query": "rank",
+    "position": "first",
+    "gte": "@min_show_cf"
+   },
+   "then": [
+    {
+     "recommend": 1
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "RC02",
+   "group": "G8",
+   "group_name": "Final recommendation",
+   "type": "decision",
+   "priority": 19,
+   "cf": 1.0,
+   "text": "IF the next highest suitability CF (not already chosen) >= min_show_cf THEN it is recommendation #2.",
+   "if": {
+    "query": "rank",
+    "position": "second",
+    "gte": "@min_show_cf"
+   },
+   "then": [
+    {
+     "recommend": 2
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "RC03",
+   "group": "G8",
+   "group_name": "Final recommendation",
+   "type": "decision",
+   "priority": 18,
+   "cf": 1.0,
+   "text": "IF the next highest suitability CF >= min_show_cf THEN it is recommendation #3.",
+   "if": {
+    "query": "rank",
+    "position": "third",
+    "gte": "@min_show_cf"
+   },
+   "then": [
+    {
+     "recommend": 3
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "RC04",
+   "group": "G8",
+   "group_name": "Final recommendation",
+   "type": "decision",
+   "priority": 17,
+   "cf": 1.0,
+   "text": "IF no field reaches min_show_cf THEN say 'No strong match yet' and give advice.",
+   "if": {
+    "query": "best_below",
+    "lt": "@min_show_cf"
+   },
+   "then": [
+    {
+     "advice": "No strong match yet. Try answering fewer questions with 'Not sure', read the field descriptions, and talk to a career counsellor."
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "RC05",
+   "group": "G8",
+   "group_name": "Final recommendation",
+   "type": "decision",
+   "priority": 16,
+   "cf": 1.0,
+   "text": "IF inter_band is Very low THEN advise improving marks or an associate degree / diploma route.",
+   "if": {
+    "fact": "inter_band",
+    "eq": "Very low"
+   },
+   "then": [
+    {
+     "advice": "Your Inter marks are below {band_pass}%. Consider an improvement exam (re-appear) or an associate degree / diploma route first."
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "RC06",
+   "group": "G8",
+   "group_name": "Final recommendation",
+   "type": "decision",
+   "priority": 15,
+   "cf": 1.0,
+   "text": "IF any top-3 field is conditional THEN give an action plan (e.g. register for MDCAT or HEC LAT).",
+   "if": {
+    "query": "top_conditional"
+   },
+   "then": [
+    {
+     "action_plan": true
+    }
+   ],
+   "asks": []
+  },
+  {
+   "id": "RC07",
+   "group": "G8",
+   "group_name": "Final recommendation",
+   "type": "decision",
+   "priority": 14,
+   "cf": 1.0,
+   "text": "FOR EACH field: IF the field is not eligible AND all its aptitudes have CF >= strong_aptitude_cf THEN say 'You seem to like X, but…' and list the closest eligible options.",
+   "if": {
+    "all": [
+     {
+      "fact": "elig.$F",
+      "eq": "not_eligible",
+      "use_cf": false
+     },
+     {
+      "query": "aptitudes_strong",
+      "gte": "@strong_aptitude_cf"
+     }
+    ]
+   },
+   "then": [
+    {
+     "like_but_not_eligible": true
+    }
+   ],
+   "for_each": "field",
+   "asks": []
+  },
+  {
+   "id": "RC08",
+   "group": "G8",
+   "group_name": "Final recommendation",
+   "type": "decision",
+   "priority": 13,
+   "cf": 1.0,
+   "text": "ALWAYS (after the rules above) write a 2-3 sentence plain-English summary.",
+   "if": {
+    "all": []
+   },
+   "then": [
+    {
+     "summary": true
+    }
+   ],
+   "asks": []
+  }
+ ]
+}

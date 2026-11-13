@@ -1,0 +1,3823 @@
+{
+ "as_of": "2026-11-13",
+ "note": "Each offering is 'verified' only when its eligibility was read on an official page on the as_of date. Fees are yearly tuition; 'unknown' means the fee could not be read.",
+ "universities": [
+  {
+   "id": "ned",
+   "name": "NED University of Engineering & Technology",
+   "city": "Karachi",
+   "sector": "public",
+   "women_only": false,
+   "hostel": "yes",
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)",
+    "PCATP (B.Arch)"
+   ],
+   "website": "https://www.neduet.edu.pk",
+   "offerings": [
+    {
+     "field": "ee",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "NED entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.neduet.edu.pk/academic_programmes",
+     "verified": false
+    },
+    {
+     "field": "me",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "NED entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.neduet.edu.pk/academic_programmes",
+     "verified": false
+    },
+    {
+     "field": "civil",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "NED entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.neduet.edu.pk/academic_programmes",
+     "verified": false
+    },
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "NED entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.neduet.edu.pk/academic_programmes",
+     "verified": false
+    },
+    {
+     "field": "se",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "NED entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.neduet.edu.pk/academic_programmes",
+     "verified": false
+    },
+    {
+     "field": "arch",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "NED entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.neduet.edu.pk/academic_programmes",
+     "verified": false
+    }
+   ],
+   "notes": "Programme list confirmed; eligibility and fees are in PDFs that could not be read."
+  },
+  {
+   "id": "uok",
+   "name": "University of Karachi",
+   "city": "Karachi",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC"
+   ],
+   "website": "https://www.uok.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [],
+     "test_keys": [],
+     "source_url": "https://www.uok.edu.pk/admissions",
+     "verified": false
+    },
+    {
+     "field": "pharmd",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.uok.edu.pk/admissions",
+     "verified": false
+    },
+    {
+     "field": "media",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [],
+     "test_keys": [],
+     "source_url": "https://www.uok.edu.pk/admissions",
+     "verified": false
+    },
+    {
+     "field": "psych",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [],
+     "test_keys": [],
+     "source_url": "https://www.uok.edu.pk/admissions",
+     "verified": false
+    },
+    {
+     "field": "se",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [],
+     "test_keys": [],
+     "source_url": "https://www.uok.edu.pk/admissions",
+     "verified": false,
+     "note": "Not confirmed on the pages read"
+    },
+    {
+     "field": "bba",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [],
+     "test_keys": [],
+     "source_url": "https://www.uok.edu.pk/admissions",
+     "verified": false,
+     "note": "Not confirmed on the pages read"
+    }
+   ],
+   "notes": "Fees are in PDF files that could not be read."
+  },
+  {
+   "id": "duhs",
+   "name": "Dow University of Health Sciences",
+   "city": "Karachi",
+   "sector": "public",
+   "women_only": false,
+   "hostel": "yes",
+   "recognition": [
+    "HEC",
+    "PMDC"
+   ],
+   "website": "https://www.duhs.edu.pk",
+   "offerings": [
+    {
+     "field": "mbbs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://www.duhs.edu.pk/?p=4566",
+     "verified": false,
+     "note": "Min 60% and MDCAT per PMDC; fee table is an image"
+    },
+    {
+     "field": "bds",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://www.duhs.edu.pk/dow-dental-college/bachelor-of-dentistry-bds/",
+     "verified": false
+    },
+    {
+     "field": "pharmd",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.duhs.edu.pk/dow-college-of-pharmacy/doctor-of-pharmacy-pharm-d/",
+     "verified": false
+    },
+    {
+     "field": "dpt",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.duhs.edu.pk/dow-institute-of-physical-medicine-rehabilitation/doctor-of-physical-therapy/",
+     "verified": false
+    },
+    {
+     "field": "nursing",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 50,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.duhs.edu.pk/dow-institute-of-nursing-and-midwifery/generic-nursing/",
+     "verified": false
+    }
+   ],
+   "notes": "Hostel applications are online (webapps.duhs.edu.pk/hostel)."
+  },
+  {
+   "id": "jsmu",
+   "name": "Jinnah Sindh Medical University",
+   "city": "Karachi",
+   "sector": "public",
+   "women_only": false,
+   "hostel": "yes",
+   "recognition": [
+    "HEC",
+    "PMDC"
+   ],
+   "website": "https://www.jsmu.edu.pk",
+   "offerings": [
+    {
+     "field": "mbbs",
+     "fee_band": "low",
+     "annual_fee_pkr": 31900,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://www.jsmu.edu.pk/admissions-mbbs.html",
+     "verified": true,
+     "note": "Open merit tuition; self-finance Rs 440,000"
+    },
+    {
+     "field": "bds",
+     "fee_band": "low",
+     "annual_fee_pkr": 150000,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://www.jsmu.edu.pk/admissions-siohs.html",
+     "verified": true,
+     "note": "Open merit tuition; self-finance Rs 490,000"
+    },
+    {
+     "field": "dpt",
+     "fee_band": "low",
+     "annual_fee_pkr": 125000,
+     "min_pct": 60,
+     "tests": [
+      "JSMU entrance test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.jsmu.edu.pk/admissions-dpt.html",
+     "verified": true,
+     "note": "Sindh domicile required"
+    },
+    {
+     "field": "nursing",
+     "fee_band": "low",
+     "annual_fee_pkr": 100000,
+     "min_pct": 50,
+     "tests": [
+      "JSMU entrance test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.jsmu.edu.pk/admissions-nursing.html",
+     "verified": true,
+     "note": "Sindh domicile required"
+    },
+    {
+     "field": "pharmd",
+     "fee_band": "low",
+     "annual_fee_pkr": 133000,
+     "min_pct": 60,
+     "tests": [
+      "JSMU entrance test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.jsmu.edu.pk/admissions-ips.html",
+     "verified": true,
+     "note": "Sindh domicile required"
+    }
+   ],
+   "notes": "Pharm-D (Rs 133,000, min 60%) is also offered but is not in the seed list. Some pages are labelled 2024-25."
+  },
+  {
+   "id": "aku",
+   "name": "Aga Khan University",
+   "city": "Karachi",
+   "sector": "private",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PMDC",
+    "PNMC"
+   ],
+   "website": "https://www.aku.edu",
+   "offerings": [
+    {
+     "field": "mbbs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "AKU admission test",
+      "Interview"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.aku.edu/admissions/mbbs/Pages/home.aspx",
+     "verified": false,
+     "note": "Eligibility and fees are in PDFs that were not read"
+    },
+    {
+     "field": "nursing",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 50,
+     "tests": [
+      "AKU admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.aku.edu/admissions/bscn/Pages/home.aspx",
+     "verified": true,
+     "note": "BScN, min 50% HSSC Pre-Medical"
+    }
+   ],
+   "notes": "No BDS, Pharm-D or DPT in its Pakistan undergraduate list."
+  },
+  {
+   "id": "zu",
+   "name": "Ziauddin University",
+   "city": "Karachi",
+   "sector": "private",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PMDC"
+   ],
+   "website": "https://zu.edu.pk",
+   "offerings": [
+    {
+     "field": "mbbs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://zu.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "bds",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://zu.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "pharmd",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://zu.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "dpt",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://zu.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "nursing",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 50,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://zu.edu.pk",
+     "verified": false
+    }
+   ],
+   "notes": "Website refused automated access; minimums shown are the council rules."
+  },
+  {
+   "id": "iba",
+   "name": "Institute of Business Administration (IBA) Karachi",
+   "city": "Karachi",
+   "sector": "public",
+   "women_only": false,
+   "hostel": "yes",
+   "recognition": [
+    "HEC"
+   ],
+   "website": "https://www.iba.edu.pk",
+   "offerings": [
+    {
+     "field": "bba",
+     "fee_band": "high",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "IBA admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.iba.edu.pk/undergraduate.php",
+     "verified": false
+    },
+    {
+     "field": "af",
+     "fee_band": "high",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "IBA admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.iba.edu.pk/undergraduate.php",
+     "verified": false
+    },
+    {
+     "field": "cs",
+     "fee_band": "high",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "IBA admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.iba.edu.pk/undergraduate.php",
+     "verified": false
+    }
+   ],
+   "notes": "Tuition is Rs 31,500 per credit hour (2026-27), so a full year (30+ credit hours) is above Rs 9 lakh."
+  },
+  {
+   "id": "fast_khi",
+   "name": "FAST-NUCES Karachi",
+   "city": "Karachi",
+   "sector": "private",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)"
+   ],
+   "website": "https://www.nu.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "medium",
+     "annual_fee_pkr": 360000,
+     "min_pct": 50,
+     "tests": [
+      "FAST-NUCES test",
+      "SAT",
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat",
+      "sat"
+     ],
+     "source_url": "https://www.nu.edu.pk/Admissions/EligibilityCriteria",
+     "verified": true,
+     "note": "Estimate: Rs 12,000 per credit hour x 15 x 2 (https://www.nu.edu.pk/Admissions/FeeStructure)"
+    },
+    {
+     "field": "se",
+     "fee_band": "medium",
+     "annual_fee_pkr": 360000,
+     "min_pct": 50,
+     "tests": [
+      "FAST-NUCES test",
+      "SAT",
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat",
+      "sat"
+     ],
+     "source_url": "https://www.nu.edu.pk/Admissions/EligibilityCriteria",
+     "verified": true,
+     "note": "Estimate: Rs 12,000 per credit hour x 15 x 2 (https://www.nu.edu.pk/Admissions/FeeStructure)"
+    },
+    {
+     "field": "ee",
+     "fee_band": "medium",
+     "annual_fee_pkr": 360000,
+     "min_pct": 60,
+     "tests": [
+      "FAST-NUCES test",
+      "SAT",
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat",
+      "sat"
+     ],
+     "source_url": "https://www.nu.edu.pk/Admissions/EligibilityCriteria",
+     "verified": true,
+     "note": "Estimate: Rs 12,000 per credit hour x 15 x 2 (https://www.nu.edu.pk/Admissions/FeeStructure)"
+    },
+    {
+     "field": "bba",
+     "fee_band": "medium",
+     "annual_fee_pkr": 360000,
+     "min_pct": 50,
+     "tests": [
+      "FAST-NUCES test",
+      "SAT",
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat",
+      "sat"
+     ],
+     "source_url": "https://www.nu.edu.pk/Admissions/EligibilityCriteria",
+     "verified": true,
+     "note": "Estimate: Rs 12,000 per credit hour x 15 x 2 (https://www.nu.edu.pk/Admissions/FeeStructure)"
+    },
+    {
+     "field": "af",
+     "fee_band": "medium",
+     "annual_fee_pkr": 360000,
+     "min_pct": 50,
+     "tests": [
+      "FAST-NUCES test",
+      "SAT",
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat",
+      "sat"
+     ],
+     "source_url": "https://www.nu.edu.pk/Admissions/EligibilityCriteria",
+     "verified": true,
+     "note": "Estimate: Rs 12,000 per credit hour x 15 x 2 (https://www.nu.edu.pk/Admissions/FeeStructure)"
+    }
+   ],
+   "notes": "Hostel information not found."
+  },
+  {
+   "id": "habib",
+   "name": "Habib University",
+   "city": "Karachi",
+   "sector": "private",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC"
+   ],
+   "website": "https://habib.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "high",
+     "annual_fee_pkr": 2205000,
+     "min_pct": null,
+     "tests": [
+      "Habib entrance exam or SAT"
+     ],
+     "test_keys": [
+      "sat"
+     ],
+     "source_url": "https://habib.edu.pk/admissions/national-examination-boards/",
+     "verified": false,
+     "note": "Fee for Class of 2031 (https://habib.edu.pk/admissions/student-finance/)"
+    },
+    {
+     "field": "ee",
+     "fee_band": "high",
+     "annual_fee_pkr": 2205000,
+     "min_pct": null,
+     "tests": [
+      "Habib entrance exam or SAT"
+     ],
+     "test_keys": [
+      "sat"
+     ],
+     "source_url": "https://habib.edu.pk/admissions/national-examination-boards/",
+     "verified": false,
+     "note": "Fee for Class of 2031 (https://habib.edu.pk/admissions/student-finance/)"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "ivs",
+   "name": "Indus Valley School of Art & Architecture",
+   "city": "Karachi",
+   "sector": "private",
+   "women_only": false,
+   "hostel": "no",
+   "recognition": [
+    "HEC",
+    "PCATP (B.Arch)"
+   ],
+   "website": "https://www.indusvalley.edu.pk",
+   "offerings": [
+    {
+     "field": "arch",
+     "fee_band": "medium",
+     "annual_fee_pkr": 770400,
+     "min_pct": 50,
+     "tests": [
+      "IVS admission test",
+      "Interview"
+     ],
+     "test_keys": [],
+     "source_url": "https://indusvalley.edu.pk/admission-undergraduate/",
+     "verified": true,
+     "note": "Estimate: Rs 21,400 per credit hour x 18 x 2"
+    },
+    {
+     "field": "fashion",
+     "fee_band": "medium",
+     "annual_fee_pkr": 770400,
+     "min_pct": 50,
+     "tests": [
+      "IVS admission test",
+      "Interview"
+     ],
+     "test_keys": [],
+     "source_url": "https://indusvalley.edu.pk/admission-undergraduate/",
+     "verified": true,
+     "note": "Estimate: Rs 21,400 per credit hour x 18 x 2"
+    },
+    {
+     "field": "finearts",
+     "fee_band": "medium",
+     "annual_fee_pkr": 770400,
+     "min_pct": 50,
+     "tests": [
+      "IVS admission test",
+      "Interview"
+     ],
+     "test_keys": [],
+     "source_url": "https://indusvalley.edu.pk/admission-undergraduate/",
+     "verified": true,
+     "note": "Estimate: Rs 21,400 per credit hour x 18 x 2"
+    }
+   ],
+   "notes": "No stream requirement for B.Arch."
+  },
+  {
+   "id": "szabist_khi",
+   "name": "SZABIST Karachi",
+   "city": "Karachi",
+   "sector": "private",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC"
+   ],
+   "website": "https://szabist.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [],
+     "test_keys": [],
+     "source_url": "https://szabist.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "bba",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [],
+     "test_keys": [],
+     "source_url": "https://szabist.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "af",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [],
+     "test_keys": [],
+     "source_url": "https://szabist.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "media",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [],
+     "test_keys": [],
+     "source_url": "https://szabist.edu.pk",
+     "verified": false
+    }
+   ],
+   "notes": "Website could not be read (certificate error)."
+  },
+  {
+   "id": "bahria_khi",
+   "name": "Bahria University Karachi",
+   "city": "Karachi",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)"
+   ],
+   "website": "https://www.bahria.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "medium",
+     "annual_fee_pkr": 370142,
+     "min_pct": 50,
+     "tests": [
+      "Bahria entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bahria.edu.pk/Home/AdmissionRoadmapDetails?roadmapId=42",
+     "verified": true,
+     "note": "Estimate: 2 x first-semester total (https://www.bahria.edu.pk/page/PageTemplate4?pageContentId=4666&WebsiteID=1)"
+    },
+    {
+     "field": "se",
+     "fee_band": "medium",
+     "annual_fee_pkr": 360656,
+     "min_pct": null,
+     "tests": [
+      "Bahria entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bahria.edu.pk/Home/AdmissionRoadmap?programType=UnderGraduate",
+     "verified": false,
+     "note": "Estimate: 2 x first-semester total (https://www.bahria.edu.pk/page/PageTemplate4?pageContentId=4666&WebsiteID=1)"
+    },
+    {
+     "field": "ee",
+     "fee_band": "medium",
+     "annual_fee_pkr": 350620,
+     "min_pct": null,
+     "tests": [
+      "Bahria entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bahria.edu.pk/Home/AdmissionRoadmap?programType=UnderGraduate",
+     "verified": false,
+     "note": "Estimate: 2 x first-semester total (https://www.bahria.edu.pk/page/PageTemplate4?pageContentId=4666&WebsiteID=1)"
+    },
+    {
+     "field": "bba",
+     "fee_band": "medium",
+     "annual_fee_pkr": 341968,
+     "min_pct": null,
+     "tests": [
+      "Bahria entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bahria.edu.pk/Home/AdmissionRoadmap?programType=UnderGraduate",
+     "verified": false,
+     "note": "Estimate: 2 x first-semester total (https://www.bahria.edu.pk/page/PageTemplate4?pageContentId=4666&WebsiteID=1)"
+    },
+    {
+     "field": "psych",
+     "fee_band": "medium",
+     "annual_fee_pkr": 349888,
+     "min_pct": null,
+     "tests": [
+      "Bahria entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bahria.edu.pk/Home/AdmissionRoadmap?programType=UnderGraduate",
+     "verified": false,
+     "note": "Estimate: 2 x first-semester total (https://www.bahria.edu.pk/page/PageTemplate4?pageContentId=4666&WebsiteID=1)"
+    },
+    {
+     "field": "media",
+     "fee_band": "low",
+     "annual_fee_pkr": 269894,
+     "min_pct": null,
+     "tests": [
+      "Bahria entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bahria.edu.pk/Home/AdmissionRoadmap?programType=UnderGraduate",
+     "verified": false,
+     "note": "Estimate: 2 x first-semester total (https://www.bahria.edu.pk/page/PageTemplate4?pageContentId=4666&WebsiteID=1)"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "ssuet",
+   "name": "Sir Syed University of Engineering & Technology",
+   "city": "Karachi",
+   "sector": "private",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)"
+   ],
+   "website": "https://www.ssuet.edu.pk",
+   "offerings": [
+    {
+     "field": "ee",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "SSUET entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.ssuet.edu.pk/admissions/undergraduate-admissions/",
+     "verified": true
+    },
+    {
+     "field": "civil",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "SSUET entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.ssuet.edu.pk/admissions/undergraduate-admissions/",
+     "verified": true
+    },
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "SSUET entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.ssuet.edu.pk/admissions/undergraduate-admissions/",
+     "verified": true,
+     "note": "Offered; minimum % not stated"
+    },
+    {
+     "field": "se",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "SSUET entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.ssuet.edu.pk/admissions/undergraduate-admissions/",
+     "verified": true,
+     "note": "Offered; minimum % not stated"
+    }
+   ],
+   "notes": "Fee table is an image and could not be read."
+  },
+  {
+   "id": "smglc",
+   "name": "Sindh Muslim Government Law College",
+   "city": "Karachi",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC"
+   ],
+   "website": "https://smglc.edu.pk",
+   "offerings": [
+    {
+     "field": "law",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 45,
+     "tests": [
+      "HEC LAT"
+     ],
+     "test_keys": [
+      "lat"
+     ],
+     "source_url": "https://smglc.edu.pk",
+     "verified": false
+    }
+   ],
+   "notes": "Website could not be reached. Minimum shown is the HEC LLB rule."
+  },
+  {
+   "id": "uet_lhr",
+   "name": "UET Lahore",
+   "city": "Lahore",
+   "sector": "public",
+   "women_only": false,
+   "hostel": "limited",
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)",
+    "PCATP (B.Arch)"
+   ],
+   "website": "https://www.uet.edu.pk",
+   "offerings": [
+    {
+     "field": "ee",
+     "fee_band": "low",
+     "annual_fee_pkr": 182600,
+     "min_pct": 60,
+     "tests": [
+      "UET ECAT"
+     ],
+     "test_keys": [
+      "ecat"
+     ],
+     "source_url": "https://admission.uet.edu.pk/program/1",
+     "verified": true,
+     "note": "Year-1 total, subsidised seat (Fall 2026)"
+    },
+    {
+     "field": "me",
+     "fee_band": "low",
+     "annual_fee_pkr": 182600,
+     "min_pct": 60,
+     "tests": [
+      "UET ECAT"
+     ],
+     "test_keys": [
+      "ecat"
+     ],
+     "source_url": "https://admission.uet.edu.pk/program/1",
+     "verified": true,
+     "note": "Year-1 total, subsidised seat (Fall 2026)"
+    },
+    {
+     "field": "civil",
+     "fee_band": "low",
+     "annual_fee_pkr": 182600,
+     "min_pct": 60,
+     "tests": [
+      "UET ECAT"
+     ],
+     "test_keys": [
+      "ecat"
+     ],
+     "source_url": "https://admission.uet.edu.pk/program/1",
+     "verified": true,
+     "note": "Year-1 total, subsidised seat (Fall 2026)"
+    },
+    {
+     "field": "cs",
+     "fee_band": "low",
+     "annual_fee_pkr": 182600,
+     "min_pct": 50,
+     "tests": [
+      "UET ECAT"
+     ],
+     "test_keys": [
+      "ecat"
+     ],
+     "source_url": "https://admission.uet.edu.pk/program/1",
+     "verified": true,
+     "note": "Year-1 total, subsidised seat (Fall 2026)"
+    },
+    {
+     "field": "arch",
+     "fee_band": "low",
+     "annual_fee_pkr": 182600,
+     "min_pct": 60,
+     "tests": [
+      "UET ECAT"
+     ],
+     "test_keys": [
+      "ecat"
+     ],
+     "source_url": "https://admission.uet.edu.pk/program/1",
+     "verified": true,
+     "note": "Year-1 total, subsidised seat (Fall 2026)"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "kemu",
+   "name": "King Edward Medical University",
+   "city": "Lahore",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PMDC"
+   ],
+   "website": "https://kemu.edu.pk",
+   "offerings": [
+    {
+     "field": "mbbs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://kemu.edu.pk/undergraduates-admissions/",
+     "verified": false,
+     "note": "Admission through UHS"
+    },
+    {
+     "field": "dpt",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://kemu.edu.pk/undergraduates-admissions/",
+     "verified": true,
+     "note": "MDCAT also needed; Punjab domicile only"
+    }
+   ],
+   "notes": "Only Post-RN nursing found (no FSc-entry BSN), so Nursing was removed."
+  },
+  {
+   "id": "fjmu",
+   "name": "Fatima Jinnah Medical University",
+   "city": "Lahore",
+   "sector": "public",
+   "women_only": true,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PMDC"
+   ],
+   "website": "https://www.fjmu.edu.pk",
+   "offerings": [
+    {
+     "field": "mbbs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://www.fjmu.edu.pk/mbbs/",
+     "verified": false,
+     "note": "Admission through UHS"
+    },
+    {
+     "field": "bds",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://www.fjmu.edu.pk",
+     "verified": false,
+     "note": "Not listed on the pages read"
+    }
+   ],
+   "notes": "Women's university (not confirmed on the pages read)."
+  },
+  {
+   "id": "pu",
+   "name": "University of the Punjab",
+   "city": "Lahore",
+   "sector": "public",
+   "women_only": false,
+   "hostel": "yes",
+   "recognition": [
+    "HEC"
+   ],
+   "website": "https://pu.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://pu.edu.pk/fee",
+     "verified": false
+    },
+    {
+     "field": "se",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://pu.edu.pk/fee",
+     "verified": false
+    },
+    {
+     "field": "bba",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://pu.edu.pk/fee",
+     "verified": false
+    },
+    {
+     "field": "af",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://pu.edu.pk/fee",
+     "verified": false
+    },
+    {
+     "field": "law",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 45,
+     "tests": [
+      "HEC LAT"
+     ],
+     "test_keys": [
+      "lat"
+     ],
+     "source_url": "https://pu.edu.pk/fee",
+     "verified": false
+    },
+    {
+     "field": "psych",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://pu.edu.pk/fee",
+     "verified": false
+    },
+    {
+     "field": "pharmd",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://pu.edu.pk/fee",
+     "verified": false
+    }
+   ],
+   "notes": "Programmes confirmed in the fee directory; Mass Communication and Fine Arts showed 'No programs available', so they were removed."
+  },
+  {
+   "id": "lums",
+   "name": "LUMS",
+   "city": "Lahore",
+   "sector": "private",
+   "women_only": false,
+   "hostel": "yes",
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)"
+   ],
+   "website": "https://lums.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "high",
+     "annual_fee_pkr": 1557200,
+     "min_pct": 75,
+     "tests": [
+      "SAT / ACT / LCAT"
+     ],
+     "test_keys": [
+      "sat"
+     ],
+     "source_url": "https://lums.edu.pk/programmes/bs-computer-science",
+     "verified": true
+    },
+    {
+     "field": "ee",
+     "fee_band": "high",
+     "annual_fee_pkr": 1557200,
+     "min_pct": 75,
+     "tests": [
+      "SAT / ACT / LCAT"
+     ],
+     "test_keys": [
+      "sat"
+     ],
+     "source_url": "https://lums.edu.pk/programmes/bs-electrical-engineering",
+     "verified": true
+    },
+    {
+     "field": "af",
+     "fee_band": "high",
+     "annual_fee_pkr": 1511400,
+     "min_pct": 75,
+     "tests": [
+      "SAT / ACT / LCAT"
+     ],
+     "test_keys": [
+      "sat"
+     ],
+     "source_url": "https://lums.edu.pk/programmes/bsc-honours-accounting-and-finance",
+     "verified": true,
+     "note": "FA route: 70%"
+    },
+    {
+     "field": "law",
+     "fee_band": "high",
+     "annual_fee_pkr": 1465600,
+     "min_pct": 75,
+     "tests": [
+      "SAT / ACT / LCAT",
+      "HEC LAT"
+     ],
+     "test_keys": [
+      "lat"
+     ],
+     "source_url": "https://lums.edu.pk/programmes/ba-llb-honours",
+     "verified": true,
+     "note": "FA route: 70%"
+    },
+    {
+     "field": "psych",
+     "fee_band": "high",
+     "annual_fee_pkr": 1465600,
+     "min_pct": 75,
+     "tests": [
+      "SAT / ACT / LCAT"
+     ],
+     "test_keys": [
+      "sat"
+     ],
+     "source_url": "https://lums.edu.pk/programmes/bsc-honours-psychology",
+     "verified": true,
+     "note": "FA route: 70%"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "nca",
+   "name": "National College of Arts",
+   "city": "Lahore",
+   "sector": "public",
+   "women_only": false,
+   "hostel": "yes",
+   "recognition": [
+    "HEC",
+    "PCATP (B.Arch)"
+   ],
+   "website": "https://www.nca.edu.pk",
+   "offerings": [
+    {
+     "field": "arch",
+     "fee_band": "low",
+     "annual_fee_pkr": 152500,
+     "min_pct": 45,
+     "tests": [
+      "NCA drawing and aptitude test",
+      "Mathematics test"
+     ],
+     "test_keys": [],
+     "source_url": "https://nca.edu.pk/college?name=admission-policy-procedures",
+     "verified": true,
+     "note": "Open-merit tuition (https://nca.edu.pk/fee_structure?name=fee-structure-undergraduate-programmes)"
+    },
+    {
+     "field": "finearts",
+     "fee_band": "low",
+     "annual_fee_pkr": 152500,
+     "min_pct": 45,
+     "tests": [
+      "NCA drawing and aptitude test"
+     ],
+     "test_keys": [],
+     "source_url": "https://nca.edu.pk/college?name=admission-policy-procedures",
+     "verified": true,
+     "note": "Open-merit tuition (https://nca.edu.pk/fee_structure?name=fee-structure-undergraduate-programmes)"
+    },
+    {
+     "field": "fashion",
+     "fee_band": "low",
+     "annual_fee_pkr": 152500,
+     "min_pct": 45,
+     "tests": [
+      "NCA drawing and aptitude test"
+     ],
+     "test_keys": [],
+     "source_url": "https://nca.edu.pk/college?name=admission-policy-procedures",
+     "verified": true,
+     "note": "Open-merit tuition (https://nca.edu.pk/fee_structure?name=fee-structure-undergraduate-programmes)"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "pifd",
+   "name": "Pakistan Institute of Fashion & Design",
+   "city": "Lahore",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC"
+   ],
+   "website": "https://pifd.edu.pk",
+   "offerings": [
+    {
+     "field": "fashion",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "PIFD admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://pifd.edu.pk",
+     "verified": false
+    }
+   ],
+   "notes": "Website could not be read (certificate error)."
+  },
+  {
+   "id": "fast_lhr",
+   "name": "FAST-NUCES Lahore",
+   "city": "Lahore",
+   "sector": "private",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)"
+   ],
+   "website": "https://www.nu.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "medium",
+     "annual_fee_pkr": 360000,
+     "min_pct": 50,
+     "tests": [
+      "FAST-NUCES test",
+      "SAT",
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat",
+      "sat"
+     ],
+     "source_url": "https://www.nu.edu.pk/Admissions/EligibilityCriteria",
+     "verified": true,
+     "note": "Estimate: Rs 12,000 per credit hour x 15 x 2 (https://www.nu.edu.pk/Admissions/FeeStructure)"
+    },
+    {
+     "field": "se",
+     "fee_band": "medium",
+     "annual_fee_pkr": 360000,
+     "min_pct": 50,
+     "tests": [
+      "FAST-NUCES test",
+      "SAT",
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat",
+      "sat"
+     ],
+     "source_url": "https://www.nu.edu.pk/Admissions/EligibilityCriteria",
+     "verified": true,
+     "note": "Estimate: Rs 12,000 per credit hour x 15 x 2 (https://www.nu.edu.pk/Admissions/FeeStructure)"
+    },
+    {
+     "field": "ee",
+     "fee_band": "medium",
+     "annual_fee_pkr": 360000,
+     "min_pct": 60,
+     "tests": [
+      "FAST-NUCES test",
+      "SAT",
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat",
+      "sat"
+     ],
+     "source_url": "https://www.nu.edu.pk/Admissions/EligibilityCriteria",
+     "verified": true,
+     "note": "Estimate: Rs 12,000 per credit hour x 15 x 2 (https://www.nu.edu.pk/Admissions/FeeStructure)"
+    },
+    {
+     "field": "bba",
+     "fee_band": "medium",
+     "annual_fee_pkr": 360000,
+     "min_pct": 50,
+     "tests": [
+      "FAST-NUCES test",
+      "SAT",
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat",
+      "sat"
+     ],
+     "source_url": "https://www.nu.edu.pk/Admissions/EligibilityCriteria",
+     "verified": true,
+     "note": "Estimate: Rs 12,000 per credit hour x 15 x 2 (https://www.nu.edu.pk/Admissions/FeeStructure)"
+    },
+    {
+     "field": "af",
+     "fee_band": "medium",
+     "annual_fee_pkr": 360000,
+     "min_pct": 50,
+     "tests": [
+      "FAST-NUCES test",
+      "SAT",
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat",
+      "sat"
+     ],
+     "source_url": "https://www.nu.edu.pk/Admissions/EligibilityCriteria",
+     "verified": true,
+     "note": "Estimate: Rs 12,000 per credit hour x 15 x 2 (https://www.nu.edu.pk/Admissions/FeeStructure)"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "uol",
+   "name": "The University of Lahore",
+   "city": "Lahore",
+   "sector": "private",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PMDC",
+    "PEC (engineering programmes)"
+   ],
+   "website": "https://uol.edu.pk",
+   "offerings": [
+    {
+     "field": "mbbs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://uol.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "bds",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://uol.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "pharmd",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://uol.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "dpt",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://uol.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "nursing",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 50,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://uol.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 50,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://uol.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "se",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 50,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://uol.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "ee",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://uol.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "civil",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://uol.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "arch",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://uol.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "law",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "HEC LAT"
+     ],
+     "test_keys": [
+      "lat"
+     ],
+     "source_url": "https://uol.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "media",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://uol.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "psych",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://uol.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "bba",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://uol.edu.pk",
+     "verified": false
+    }
+   ],
+   "notes": "Website refused automated access; minimums shown are the council rules."
+  },
+  {
+   "id": "lcwu",
+   "name": "Lahore College for Women University",
+   "city": "Lahore",
+   "sector": "public",
+   "women_only": true,
+   "hostel": null,
+   "recognition": [
+    "HEC"
+   ],
+   "website": "https://www.lcwu.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "low",
+     "annual_fee_pkr": 93960,
+     "min_pct": 50,
+     "tests": [],
+     "test_keys": [],
+     "source_url": "https://www.lcwu.edu.pk/admission-notice-fall-26.html",
+     "verified": true,
+     "note": "Estimate: 2 x semester fee (https://www.lcwu.edu.pk/fee2026/index.php)"
+    },
+    {
+     "field": "bba",
+     "fee_band": "low",
+     "annual_fee_pkr": 79360,
+     "min_pct": 50,
+     "tests": [],
+     "test_keys": [],
+     "source_url": "https://www.lcwu.edu.pk/admission-notice-fall-26.html",
+     "verified": true,
+     "note": "Estimate: 2 x semester fee (https://www.lcwu.edu.pk/fee2026/index.php)"
+    },
+    {
+     "field": "psych",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 50,
+     "tests": [],
+     "test_keys": [],
+     "source_url": "https://www.lcwu.edu.pk/admission-notice-fall-26.html",
+     "verified": true
+    },
+    {
+     "field": "media",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 50,
+     "tests": [],
+     "test_keys": [],
+     "source_url": "https://www.lcwu.edu.pk/admission-notice-fall-26.html",
+     "verified": true
+    },
+    {
+     "field": "finearts",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 45,
+     "tests": [
+      "Drawing test",
+      "Interview"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.lcwu.edu.pk/admission-notice-fall-26.html",
+     "verified": true,
+     "note": "At least second division"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "nust",
+   "name": "NUST",
+   "city": "Islamabad–Rawalpindi",
+   "sector": "public",
+   "women_only": false,
+   "hostel": "yes",
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)",
+    "PMDC"
+   ],
+   "website": "https://nust.edu.pk",
+   "offerings": [
+    {
+     "field": "ee",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "NUST NET"
+     ],
+     "test_keys": [
+      "net",
+      "sat"
+     ],
+     "source_url": "https://nust.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "me",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "NUST NET"
+     ],
+     "test_keys": [
+      "net",
+      "sat"
+     ],
+     "source_url": "https://nust.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "civil",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "NUST NET"
+     ],
+     "test_keys": [
+      "net",
+      "sat"
+     ],
+     "source_url": "https://nust.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "NUST NET"
+     ],
+     "test_keys": [
+      "net",
+      "sat"
+     ],
+     "source_url": "https://nust.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "se",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "NUST NET"
+     ],
+     "test_keys": [
+      "net",
+      "sat"
+     ],
+     "source_url": "https://nust.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "arch",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "NUST NET"
+     ],
+     "test_keys": [
+      "net",
+      "sat"
+     ],
+     "source_url": "https://nust.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "bba",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "NUST NET"
+     ],
+     "test_keys": [
+      "net",
+      "sat"
+     ],
+     "source_url": "https://nust.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "af",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "NUST NET"
+     ],
+     "test_keys": [
+      "net",
+      "sat"
+     ],
+     "source_url": "https://nust.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "law",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "NUST NET"
+     ],
+     "test_keys": [
+      "net",
+      "sat"
+     ],
+     "source_url": "https://nust.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "media",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "NUST NET"
+     ],
+     "test_keys": [
+      "net",
+      "sat"
+     ],
+     "source_url": "https://nust.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "mbbs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://nust.edu.pk",
+     "verified": false
+    }
+   ],
+   "notes": "Website refused automated access."
+  },
+  {
+   "id": "comsats",
+   "name": "COMSATS University Islamabad",
+   "city": "Islamabad–Rawalpindi",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)",
+    "PCATP (B.Arch)"
+   ],
+   "website": "https://www.comsats.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "low",
+     "annual_fee_pkr": 278000,
+     "min_pct": null,
+     "tests": [
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat"
+     ],
+     "source_url": "https://www.comsats.edu.pk/fee-structure.aspx",
+     "verified": false,
+     "note": "Fall 2025 fee"
+    },
+    {
+     "field": "ee",
+     "fee_band": "low",
+     "annual_fee_pkr": 289000,
+     "min_pct": 60,
+     "tests": [
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat"
+     ],
+     "source_url": "https://www.comsats.edu.pk/fee-structure.aspx",
+     "verified": false,
+     "note": "Fall 2025 fee"
+    },
+    {
+     "field": "arch",
+     "fee_band": "medium",
+     "annual_fee_pkr": 320000,
+     "min_pct": null,
+     "tests": [
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat"
+     ],
+     "source_url": "https://www.comsats.edu.pk/fee-structure.aspx",
+     "verified": false,
+     "note": "Fall 2025 fee"
+    },
+    {
+     "field": "se",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat"
+     ],
+     "source_url": "https://www.comsats.edu.pk/fee-structure.aspx",
+     "verified": false
+    },
+    {
+     "field": "bba",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat"
+     ],
+     "source_url": "https://www.comsats.edu.pk/fee-structure.aspx",
+     "verified": false
+    },
+    {
+     "field": "psych",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat"
+     ],
+     "source_url": "https://www.comsats.edu.pk/fee-structure.aspx",
+     "verified": false
+    }
+   ],
+   "notes": "Programmes confirmed on https://www.comsats.edu.pk/academic-programs.aspx; eligibility pages not read."
+  },
+  {
+   "id": "fast_isb",
+   "name": "FAST-NUCES Islamabad",
+   "city": "Islamabad–Rawalpindi",
+   "sector": "private",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)"
+   ],
+   "website": "https://www.nu.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "medium",
+     "annual_fee_pkr": 360000,
+     "min_pct": 50,
+     "tests": [
+      "FAST-NUCES test",
+      "SAT",
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat",
+      "sat"
+     ],
+     "source_url": "https://www.nu.edu.pk/Admissions/EligibilityCriteria",
+     "verified": true,
+     "note": "Estimate: Rs 12,000 per credit hour x 15 x 2 (https://www.nu.edu.pk/Admissions/FeeStructure)"
+    },
+    {
+     "field": "se",
+     "fee_band": "medium",
+     "annual_fee_pkr": 360000,
+     "min_pct": 50,
+     "tests": [
+      "FAST-NUCES test",
+      "SAT",
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat",
+      "sat"
+     ],
+     "source_url": "https://www.nu.edu.pk/Admissions/EligibilityCriteria",
+     "verified": true,
+     "note": "Estimate: Rs 12,000 per credit hour x 15 x 2 (https://www.nu.edu.pk/Admissions/FeeStructure)"
+    },
+    {
+     "field": "ee",
+     "fee_band": "medium",
+     "annual_fee_pkr": 360000,
+     "min_pct": 60,
+     "tests": [
+      "FAST-NUCES test",
+      "SAT",
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat",
+      "sat"
+     ],
+     "source_url": "https://www.nu.edu.pk/Admissions/EligibilityCriteria",
+     "verified": true,
+     "note": "Estimate: Rs 12,000 per credit hour x 15 x 2 (https://www.nu.edu.pk/Admissions/FeeStructure)"
+    },
+    {
+     "field": "bba",
+     "fee_band": "medium",
+     "annual_fee_pkr": 360000,
+     "min_pct": 50,
+     "tests": [
+      "FAST-NUCES test",
+      "SAT",
+      "NTS NAT"
+     ],
+     "test_keys": [
+      "nat",
+      "sat"
+     ],
+     "source_url": "https://www.nu.edu.pk/Admissions/EligibilityCriteria",
+     "verified": true,
+     "note": "Estimate: Rs 12,000 per credit hour x 15 x 2 (https://www.nu.edu.pk/Admissions/FeeStructure)"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "au",
+   "name": "Air University",
+   "city": "Islamabad–Rawalpindi",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)"
+   ],
+   "website": "https://au.edu.pk",
+   "offerings": [
+    {
+     "field": "ee",
+     "fee_band": "low",
+     "annual_fee_pkr": 273700,
+     "min_pct": 60,
+     "tests": [
+      "AU admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://webdata.au.edu.pk/Pages/Admission/eligibility_criteria.aspx",
+     "verified": true,
+     "note": "Estimate: 2 x first-semester tuition (https://webdata.au.edu.pk/Pages/Admission/fees_financial.aspx)"
+    },
+    {
+     "field": "me",
+     "fee_band": "low",
+     "annual_fee_pkr": 273700,
+     "min_pct": 60,
+     "tests": [
+      "AU admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://webdata.au.edu.pk/Pages/Admission/eligibility_criteria.aspx",
+     "verified": true,
+     "note": "Estimate: 2 x first-semester tuition (https://webdata.au.edu.pk/Pages/Admission/fees_financial.aspx)"
+    },
+    {
+     "field": "cs",
+     "fee_band": "low",
+     "annual_fee_pkr": 274500,
+     "min_pct": 50,
+     "tests": [
+      "AU admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://webdata.au.edu.pk/Pages/Admission/eligibility_criteria.aspx",
+     "verified": true,
+     "note": "Estimate: 2 x first-semester tuition (https://webdata.au.edu.pk/Pages/Admission/fees_financial.aspx)"
+    },
+    {
+     "field": "se",
+     "fee_band": "medium",
+     "annual_fee_pkr": 309600,
+     "min_pct": 60,
+     "tests": [
+      "AU admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://webdata.au.edu.pk/Pages/Admission/eligibility_criteria.aspx",
+     "verified": true,
+     "note": "Estimate: 2 x first-semester tuition (https://webdata.au.edu.pk/Pages/Admission/fees_financial.aspx)"
+    },
+    {
+     "field": "bba",
+     "fee_band": "low",
+     "annual_fee_pkr": 244800,
+     "min_pct": 50,
+     "tests": [
+      "AU admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://webdata.au.edu.pk/Pages/Admission/eligibility_criteria.aspx",
+     "verified": true,
+     "note": "Estimate: 2 x first-semester tuition (https://webdata.au.edu.pk/Pages/Admission/fees_financial.aspx)"
+    },
+    {
+     "field": "af",
+     "fee_band": "low",
+     "annual_fee_pkr": 232900,
+     "min_pct": 50,
+     "tests": [
+      "AU admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://webdata.au.edu.pk/Pages/Admission/eligibility_criteria.aspx",
+     "verified": true,
+     "note": "Estimate: 2 x first-semester tuition (https://webdata.au.edu.pk/Pages/Admission/fees_financial.aspx)"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "bahria_isb",
+   "name": "Bahria University Islamabad",
+   "city": "Islamabad–Rawalpindi",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)"
+   ],
+   "website": "https://www.bahria.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "medium",
+     "annual_fee_pkr": 370142,
+     "min_pct": 50,
+     "tests": [
+      "Bahria entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bahria.edu.pk/Home/AdmissionRoadmapDetails?roadmapId=42",
+     "verified": true,
+     "note": "Estimate: 2 x first-semester total (https://www.bahria.edu.pk/page/PageTemplate4?pageContentId=4666&WebsiteID=1)"
+    },
+    {
+     "field": "se",
+     "fee_band": "medium",
+     "annual_fee_pkr": 360656,
+     "min_pct": null,
+     "tests": [
+      "Bahria entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bahria.edu.pk/Home/AdmissionRoadmap?programType=UnderGraduate",
+     "verified": false,
+     "note": "Estimate: 2 x first-semester total (https://www.bahria.edu.pk/page/PageTemplate4?pageContentId=4666&WebsiteID=1)"
+    },
+    {
+     "field": "ee",
+     "fee_band": "medium",
+     "annual_fee_pkr": 350620,
+     "min_pct": null,
+     "tests": [
+      "Bahria entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bahria.edu.pk/Home/AdmissionRoadmap?programType=UnderGraduate",
+     "verified": false,
+     "note": "Estimate: 2 x first-semester total (https://www.bahria.edu.pk/page/PageTemplate4?pageContentId=4666&WebsiteID=1)"
+    },
+    {
+     "field": "bba",
+     "fee_band": "medium",
+     "annual_fee_pkr": 341968,
+     "min_pct": null,
+     "tests": [
+      "Bahria entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bahria.edu.pk/Home/AdmissionRoadmap?programType=UnderGraduate",
+     "verified": false,
+     "note": "Estimate: 2 x first-semester total (https://www.bahria.edu.pk/page/PageTemplate4?pageContentId=4666&WebsiteID=1)"
+    },
+    {
+     "field": "psych",
+     "fee_band": "medium",
+     "annual_fee_pkr": 349888,
+     "min_pct": null,
+     "tests": [
+      "Bahria entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bahria.edu.pk/Home/AdmissionRoadmap?programType=UnderGraduate",
+     "verified": false,
+     "note": "Estimate: 2 x first-semester total (https://www.bahria.edu.pk/page/PageTemplate4?pageContentId=4666&WebsiteID=1)"
+    },
+    {
+     "field": "media",
+     "fee_band": "low",
+     "annual_fee_pkr": 269894,
+     "min_pct": null,
+     "tests": [
+      "Bahria entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bahria.edu.pk/Home/AdmissionRoadmap?programType=UnderGraduate",
+     "verified": false,
+     "note": "Estimate: 2 x first-semester total (https://www.bahria.edu.pk/page/PageTemplate4?pageContentId=4666&WebsiteID=1)"
+    }
+   ],
+   "notes": "Fees are the Islamabad/Karachi rates."
+  },
+  {
+   "id": "qau",
+   "name": "Quaid-i-Azam University",
+   "city": "Islamabad–Rawalpindi",
+   "sector": "public",
+   "women_only": false,
+   "hostel": "yes",
+   "recognition": [
+    "HEC"
+   ],
+   "website": "https://qau.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://qau.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "pharmd",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://qau.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "psych",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://qau.edu.pk",
+     "verified": false
+    }
+   ],
+   "notes": "Website refused automated access."
+  },
+  {
+   "id": "iiui",
+   "name": "International Islamic University Islamabad",
+   "city": "Islamabad–Rawalpindi",
+   "sector": "public",
+   "women_only": false,
+   "hostel": "limited",
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)"
+   ],
+   "website": "https://www.iiu.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "low",
+     "annual_fee_pkr": 187960,
+     "min_pct": null,
+     "tests": [
+      "IIUI admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.iiu.edu.pk/fee-structure/pakistani-students/",
+     "verified": false,
+     "note": "2 x semester fee (FY2026-27)"
+    },
+    {
+     "field": "se",
+     "fee_band": "low",
+     "annual_fee_pkr": 187960,
+     "min_pct": null,
+     "tests": [
+      "IIUI admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.iiu.edu.pk/fee-structure/pakistani-students/",
+     "verified": false,
+     "note": "2 x semester fee (FY2026-27)"
+    },
+    {
+     "field": "ee",
+     "fee_band": "low",
+     "annual_fee_pkr": 203800,
+     "min_pct": 60,
+     "tests": [
+      "IIUI admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.iiu.edu.pk/fee-structure/pakistani-students/",
+     "verified": false,
+     "note": "2 x semester fee (FY2026-27)"
+    },
+    {
+     "field": "me",
+     "fee_band": "low",
+     "annual_fee_pkr": 203800,
+     "min_pct": 60,
+     "tests": [
+      "IIUI admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.iiu.edu.pk/fee-structure/pakistani-students/",
+     "verified": false,
+     "note": "2 x semester fee (FY2026-27)"
+    },
+    {
+     "field": "law",
+     "fee_band": "low",
+     "annual_fee_pkr": 195440,
+     "min_pct": 45,
+     "tests": [
+      "IIUI admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.iiu.edu.pk/fee-structure/pakistani-students/",
+     "verified": false,
+     "note": "LLB 5 years; 2 x semester fee (FY2026-27)"
+    },
+    {
+     "field": "media",
+     "fee_band": "low",
+     "annual_fee_pkr": 104800,
+     "min_pct": null,
+     "tests": [
+      "IIUI admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.iiu.edu.pk/fee-structure/pakistani-students/",
+     "verified": false,
+     "note": "2 x semester fee (FY2026-27)"
+    },
+    {
+     "field": "psych",
+     "fee_band": "low",
+     "annual_fee_pkr": 110740,
+     "min_pct": null,
+     "tests": [
+      "IIUI admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.iiu.edu.pk/fee-structure/pakistani-students/",
+     "verified": false,
+     "note": "2 x semester fee (FY2026-27)"
+    },
+    {
+     "field": "bba",
+     "fee_band": "low",
+     "annual_fee_pkr": 207400,
+     "min_pct": null,
+     "tests": [
+      "IIUI admission test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.iiu.edu.pk/fee-structure/pakistani-students/",
+     "verified": false,
+     "note": "2 x semester fee (FY2026-27)"
+    }
+   ],
+   "notes": "Separate female campus. Only merit formulas found, no minimum % per programme."
+  },
+  {
+   "id": "fjwu",
+   "name": "Fatima Jinnah Women University",
+   "city": "Islamabad–Rawalpindi",
+   "sector": "public",
+   "women_only": true,
+   "hostel": "yes",
+   "recognition": [
+    "HEC"
+   ],
+   "website": "https://fjwu.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "NAT-I / ETC"
+     ],
+     "test_keys": [
+      "nat"
+     ],
+     "source_url": "https://fjwu.edu.pk/admission-criteria/bachelors--4-years-program/",
+     "verified": true
+    },
+    {
+     "field": "se",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "NAT-I / ETC"
+     ],
+     "test_keys": [
+      "nat"
+     ],
+     "source_url": "https://fjwu.edu.pk/admission-criteria/admission-requirements/",
+     "verified": true
+    },
+    {
+     "field": "law",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 45,
+     "tests": [
+      "HEC LAT"
+     ],
+     "test_keys": [
+      "lat"
+     ],
+     "source_url": "https://fjwu.edu.pk/admission-news/admissions-fall-2026-open-bs-law-degree-program-4-years-regular-and-self-support-programs/",
+     "verified": true
+    },
+    {
+     "field": "media",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [],
+     "test_keys": [],
+     "source_url": "https://fjwu.edu.pk/admission-criteria/bachelors--4-years-program/",
+     "verified": true,
+     "note": "Open to all with 12 years of education"
+    },
+    {
+     "field": "bba",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [],
+     "test_keys": [],
+     "source_url": "https://fjwu.edu.pk/admission-criteria/bachelors--4-years-program/",
+     "verified": false
+    },
+    {
+     "field": "psych",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [],
+     "test_keys": [],
+     "source_url": "https://fjwu.edu.pk/admission-criteria/bachelors--4-years-program/",
+     "verified": false,
+     "note": "Behavioural Sciences department; Psychology programme not named"
+    }
+   ],
+   "notes": "In Rawalpindi. Fee amounts could not be read (blocked pages)."
+  },
+  {
+   "id": "rmu",
+   "name": "Rawalpindi Medical University",
+   "city": "Islamabad–Rawalpindi",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PMDC"
+   ],
+   "website": "https://www.rmur.edu.pk",
+   "offerings": [
+    {
+     "field": "mbbs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://rmur.edu.pk/mbbs-program/",
+     "verified": false,
+     "note": "Admission through UHS"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "stmu",
+   "name": "Shifa Tameer-e-Millat University",
+   "city": "Islamabad–Rawalpindi",
+   "sector": "private",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PMDC"
+   ],
+   "website": "https://stmu.edu.pk",
+   "offerings": [
+    {
+     "field": "mbbs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://stmu.edu.pk/admission-process/",
+     "verified": false
+    },
+    {
+     "field": "bds",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://stmu.edu.pk/admission-process/",
+     "verified": false
+    },
+    {
+     "field": "pharmd",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "STMU entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://stmu.edu.pk/eligibility-criteria-2/",
+     "verified": true
+    },
+    {
+     "field": "dpt",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "STMU entry test",
+      "Interview"
+     ],
+     "test_keys": [],
+     "source_url": "https://stmu.edu.pk/admission-process/",
+     "verified": false
+    },
+    {
+     "field": "nursing",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 50,
+     "tests": [
+      "STMU entry test",
+      "Interview"
+     ],
+     "test_keys": [],
+     "source_url": "https://stmu.edu.pk/admission-process/",
+     "verified": false
+    }
+   ],
+   "notes": "No undergraduate Psychology found (only MS/PhD), so it was removed."
+  },
+  {
+   "id": "riphah",
+   "name": "Riphah International University",
+   "city": "Islamabad–Rawalpindi",
+   "sector": "private",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PMDC",
+    "PEC (engineering programmes)"
+   ],
+   "website": "https://www.riphah.edu.pk",
+   "offerings": [
+    {
+     "field": "mbbs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://www.riphah.edu.pk/programs/undergraduate/",
+     "verified": false
+    },
+    {
+     "field": "bds",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://www.riphah.edu.pk/programs/undergraduate/",
+     "verified": false
+    },
+    {
+     "field": "pharmd",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.riphah.edu.pk/programs/undergraduate/",
+     "verified": false
+    },
+    {
+     "field": "dpt",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.riphah.edu.pk/programs/undergraduate/",
+     "verified": false
+    },
+    {
+     "field": "nursing",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 50,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.riphah.edu.pk/programs/undergraduate/",
+     "verified": false
+    },
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 50,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.riphah.edu.pk/programs/undergraduate/",
+     "verified": false
+    },
+    {
+     "field": "se",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 50,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.riphah.edu.pk/programs/undergraduate/",
+     "verified": false
+    },
+    {
+     "field": "ee",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.riphah.edu.pk/programs/undergraduate/",
+     "verified": false
+    },
+    {
+     "field": "bba",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.riphah.edu.pk/programs/undergraduate/",
+     "verified": false
+    },
+    {
+     "field": "psych",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.riphah.edu.pk/programs/undergraduate/",
+     "verified": false
+    }
+   ],
+   "notes": "Programme finder could not be read; minimums shown are the council rules."
+  },
+  {
+   "id": "pieas",
+   "name": "PIEAS",
+   "city": "Islamabad–Rawalpindi",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)"
+   ],
+   "website": "https://www.pieas.edu.pk",
+   "offerings": [
+    {
+     "field": "ee",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "PIEAS entry test"
+     ],
+     "test_keys": [],
+     "source_url": "http://admissions.pieas.edu.pk/Admissions/BS.html",
+     "verified": false
+    },
+    {
+     "field": "me",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "PIEAS entry test"
+     ],
+     "test_keys": [],
+     "source_url": "http://admissions.pieas.edu.pk/Admissions/BS.html",
+     "verified": false
+    },
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "PIEAS entry test"
+     ],
+     "test_keys": [],
+     "source_url": "http://admissions.pieas.edu.pk/Admissions/BS.html",
+     "verified": false
+    }
+   ],
+   "notes": "Programmes confirmed on the BS Admissions 2026 page."
+  },
+  {
+   "id": "uet_psh",
+   "name": "UET Peshawar",
+   "city": "Peshawar",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)",
+    "PCATP (B.Arch)"
+   ],
+   "website": "https://www.uetpeshawar.edu.pk",
+   "offerings": [
+    {
+     "field": "ee",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "ETEA engineering test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.uetpeshawar.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "me",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "ETEA engineering test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.uetpeshawar.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "civil",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "ETEA engineering test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.uetpeshawar.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "ETEA engineering test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.uetpeshawar.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "arch",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "ETEA engineering test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.uetpeshawar.edu.pk",
+     "verified": false
+    }
+   ],
+   "notes": "Prospectus PDF was too large to read."
+  },
+  {
+   "id": "kmu",
+   "name": "Khyber Medical University",
+   "city": "Peshawar",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PMDC"
+   ],
+   "website": "https://www.kmu.edu.pk",
+   "offerings": [
+    {
+     "field": "mbbs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://kmu.edu.pk/programs/mbbs",
+     "verified": false
+    },
+    {
+     "field": "bds",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://kmu.edu.pk/programs/bds",
+     "verified": false
+    },
+    {
+     "field": "dpt",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://kmu.edu.pk/programs/dpt",
+     "verified": false
+    },
+    {
+     "field": "nursing",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 50,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://kmu.edu.pk/programs/bsn-4-years",
+     "verified": false
+    }
+   ],
+   "notes": "Programme pages say full details will be published soon."
+  },
+  {
+   "id": "uop",
+   "name": "University of Peshawar",
+   "city": "Peshawar",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC"
+   ],
+   "website": "https://www.uop.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.uop.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "law",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 45,
+     "tests": [
+      "HEC LAT"
+     ],
+     "test_keys": [
+      "lat"
+     ],
+     "source_url": "https://www.uop.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "psych",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.uop.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "media",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.uop.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "bba",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.uop.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "pharmd",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.uop.edu.pk",
+     "verified": false
+    }
+   ],
+   "notes": "Admissions links were placeholders; nothing verified."
+  },
+  {
+   "id": "muet",
+   "name": "Mehran UET Jamshoro",
+   "city": "Hyderabad–Jamshoro",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)",
+    "PCATP (B.Arch)"
+   ],
+   "website": "https://www.muet.edu.pk",
+   "offerings": [
+    {
+     "field": "ee",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MUET entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.muet.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "me",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MUET entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.muet.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "civil",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MUET entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.muet.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "MUET entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.muet.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "se",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "MUET entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.muet.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "arch",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "MUET entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.muet.edu.pk",
+     "verified": false
+    }
+   ],
+   "notes": "Website refused automated access."
+  },
+  {
+   "id": "lumhs",
+   "name": "Liaquat University of Medical & Health Sciences",
+   "city": "Hyderabad–Jamshoro",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PMDC"
+   ],
+   "website": "https://www.lumhs.edu.pk",
+   "offerings": [
+    {
+     "field": "mbbs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://www.lumhs.edu.pk/admissions/mbbs-bds.php",
+     "verified": false
+    },
+    {
+     "field": "bds",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://www.lumhs.edu.pk/admissions/mbbs-bds.php",
+     "verified": false
+    },
+    {
+     "field": "pharmd",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "LUMHS entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.lumhs.edu.pk/admissions/undergraduate_admission.php",
+     "verified": false
+    },
+    {
+     "field": "dpt",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "LUMHS entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.lumhs.edu.pk/admissions/undergraduate_admission.php",
+     "verified": true
+    },
+    {
+     "field": "nursing",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 50,
+     "tests": [
+      "LUMHS entry test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.lumhs.edu.pk/admissions/undergraduate_admission.php",
+     "verified": true
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "usindh",
+   "name": "University of Sindh",
+   "city": "Hyderabad–Jamshoro",
+   "sector": "public",
+   "women_only": false,
+   "hostel": "yes",
+   "recognition": [
+    "HEC"
+   ],
+   "website": "https://usindh.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://admission.usindh.edu.pk/admission/",
+     "verified": false
+    },
+    {
+     "field": "law",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 45,
+     "tests": [
+      "HEC LAT"
+     ],
+     "test_keys": [
+      "lat"
+     ],
+     "source_url": "https://admission.usindh.edu.pk/admission/",
+     "verified": false
+    },
+    {
+     "field": "media",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://admission.usindh.edu.pk/admission/",
+     "verified": false
+    },
+    {
+     "field": "psych",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://admission.usindh.edu.pk/admission/",
+     "verified": false
+    },
+    {
+     "field": "bba",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://admission.usindh.edu.pk/admission/",
+     "verified": false
+    },
+    {
+     "field": "pharmd",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://admission.usindh.edu.pk/admission/",
+     "verified": false
+    }
+   ],
+   "notes": "Prospectus PDFs were not read."
+  },
+  {
+   "id": "gcuf",
+   "name": "Government College University Faisalabad",
+   "city": "Faisalabad",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC"
+   ],
+   "website": "https://gcuf.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://gcuf.edu.pk/admissions/",
+     "verified": false
+    },
+    {
+     "field": "bba",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://gcuf.edu.pk/admissions/",
+     "verified": false
+    },
+    {
+     "field": "psych",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://gcuf.edu.pk/admissions/",
+     "verified": false
+    },
+    {
+     "field": "media",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://gcuf.edu.pk/admissions/",
+     "verified": false
+    },
+    {
+     "field": "law",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 45,
+     "tests": [
+      "HEC LAT"
+     ],
+     "test_keys": [
+      "lat"
+     ],
+     "source_url": "https://gcuf.edu.pk/admissions/",
+     "verified": false
+    },
+    {
+     "field": "pharmd",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://gcuf.edu.pk/admissions/",
+     "verified": false
+    }
+   ],
+   "notes": "Eligibility PDF was not read."
+  },
+  {
+   "id": "ntu",
+   "name": "National Textile University",
+   "city": "Faisalabad",
+   "sector": "public",
+   "women_only": false,
+   "hostel": "limited",
+   "recognition": [
+    "HEC"
+   ],
+   "website": "https://www.ntu.edu.pk",
+   "offerings": [
+    {
+     "field": "fashion",
+     "fee_band": "low",
+     "annual_fee_pkr": 175340,
+     "min_pct": 45,
+     "tests": [
+      "Drawing test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.ntu.edu.pk/bfdt.php",
+     "verified": true,
+     "note": "Estimate: 2 x first-semester tuition; Textile Design also offered"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "bzu",
+   "name": "Bahauddin Zakariya University",
+   "city": "Multan",
+   "sector": "public",
+   "women_only": false,
+   "hostel": "yes",
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)"
+   ],
+   "website": "https://www.bzu.edu.pk",
+   "offerings": [
+    {
+     "field": "cs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bzu.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "ee",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bzu.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "law",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 45,
+     "tests": [
+      "HEC LAT"
+     ],
+     "test_keys": [
+      "lat"
+     ],
+     "source_url": "https://www.bzu.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "pharmd",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bzu.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "bba",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bzu.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "media",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bzu.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "psych",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://www.bzu.edu.pk",
+     "verified": false
+    }
+   ],
+   "notes": "Fee tables are images and could not be read."
+  },
+  {
+   "id": "nmu",
+   "name": "Nishtar Medical University",
+   "city": "Multan",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PMDC"
+   ],
+   "website": "https://nmu.edu.pk",
+   "offerings": [
+    {
+     "field": "mbbs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://nmu.edu.pk/mbbs/",
+     "verified": false
+    },
+    {
+     "field": "bds",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://nmu.edu.pk/bds/",
+     "verified": false
+    }
+   ],
+   "notes": "Pages read were out of date (2021 cycle)."
+  },
+  {
+   "id": "buitems",
+   "name": "BUITEMS",
+   "city": "Quetta",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PEC (engineering programmes)"
+   ],
+   "website": "https://www.buitms.edu.pk",
+   "offerings": [
+    {
+     "field": "ee",
+     "fee_band": "low",
+     "annual_fee_pkr": 68550,
+     "min_pct": 60,
+     "tests": [
+      "NTS or HAT test"
+     ],
+     "test_keys": [
+      "nat"
+     ],
+     "source_url": "https://www.buitms.edu.pk/Admission",
+     "verified": false,
+     "note": "Tuition only, 2 x semester (https://www.buitms.edu.pk/Fee-Structure)"
+    },
+    {
+     "field": "civil",
+     "fee_band": "low",
+     "annual_fee_pkr": 68550,
+     "min_pct": 60,
+     "tests": [
+      "NTS or HAT test"
+     ],
+     "test_keys": [
+      "nat"
+     ],
+     "source_url": "https://www.buitms.edu.pk/Admission",
+     "verified": false,
+     "note": "Tuition only, 2 x semester (https://www.buitms.edu.pk/Fee-Structure)"
+    },
+    {
+     "field": "cs",
+     "fee_band": "low",
+     "annual_fee_pkr": 68550,
+     "min_pct": null,
+     "tests": [
+      "NTS or HAT test"
+     ],
+     "test_keys": [
+      "nat"
+     ],
+     "source_url": "https://www.buitms.edu.pk/Admission",
+     "verified": false,
+     "note": "Tuition only, 2 x semester (https://www.buitms.edu.pk/Fee-Structure)"
+    },
+    {
+     "field": "se",
+     "fee_band": "low",
+     "annual_fee_pkr": 68550,
+     "min_pct": null,
+     "tests": [
+      "NTS or HAT test"
+     ],
+     "test_keys": [
+      "nat"
+     ],
+     "source_url": "https://www.buitms.edu.pk/Admission",
+     "verified": false,
+     "note": "Tuition only, 2 x semester (https://www.buitms.edu.pk/Fee-Structure)"
+    },
+    {
+     "field": "bba",
+     "fee_band": "low",
+     "annual_fee_pkr": 68550,
+     "min_pct": null,
+     "tests": [
+      "NTS or HAT test"
+     ],
+     "test_keys": [
+      "nat"
+     ],
+     "source_url": "https://www.buitms.edu.pk/Admission",
+     "verified": false,
+     "note": "Tuition only, 2 x semester (https://www.buitms.edu.pk/Fee-Structure)"
+    }
+   ],
+   "notes": "Eligibility PDF was not read."
+  },
+  {
+   "id": "bumhs",
+   "name": "Bolan University of Medical & Health Sciences",
+   "city": "Quetta",
+   "sector": "public",
+   "women_only": false,
+   "hostel": null,
+   "recognition": [
+    "HEC",
+    "PMDC"
+   ],
+   "website": "https://bumhs.edu.pk",
+   "offerings": [
+    {
+     "field": "mbbs",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://bumhs.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "bds",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "MDCAT"
+     ],
+     "test_keys": [
+      "mdcat"
+     ],
+     "source_url": "https://bumhs.edu.pk",
+     "verified": false
+    },
+    {
+     "field": "nursing",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 50,
+     "tests": [
+      "NCAT"
+     ],
+     "test_keys": [],
+     "source_url": "https://bumhs.edu.pk/admission",
+     "verified": false
+    }
+   ],
+   "notes": ""
+  }
+ ]
+}
