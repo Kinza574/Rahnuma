@@ -14,7 +14,7 @@ NOTE_BG = "#F4EFE7"
 
 APP_NAME = "Rahnuma"
 APP_TAGLINE = "University Field Advisor"
-APP_URL = ""  # public Streamlit Cloud URL, filled in after deployment
+APP_URL = "https://rahnuma.streamlit.app/"  # public Streamlit Cloud URL
 FOOTER = "For guidance only — always confirm admission criteria with the university."
 
 SERIF = 'Georgia, "Times New Roman", serif'

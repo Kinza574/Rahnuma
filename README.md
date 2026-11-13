@@ -1,5 +1,7 @@
 # Rahnuma — University Field Advisor
 
+**Live app:** https://rahnuma.streamlit.app/
+
 Rahnuma is a rule-based expert system for Pakistani Matric, Inter and O/A-Level students.
 It asks about studies, interests, skills, entry tests and budget, checks admission rules
 (PMDC, PEC, HEC, PNMC, PCATP), recommends up to three university fields and lists matching universities.
@@ -7,8 +9,6 @@ It asks about studies, interests, skills, entry tests and budget, checks admissi
 - Our own forward-chaining inference engine with MYCIN certainty factors (no rule library).
 - 90 rules stored as data in `knowledge_base/rules.json` (55 compute, 35 decision, 209 leaf conditions).
 - Streamlit interface: Guided Counselling, Counsellor Desk, Knowledge Base, Knowledge Acquisition, About.
-
-**Live app:** _add the Streamlit Community Cloud URL here after deployment._
 
 Screenshots of every page (desktop 1366px and phone 390px) are made during testing and kept in a local
 `screenshots/` folder, which is not committed to Git.
@@ -63,7 +63,7 @@ python tools/make_pdf.py
 4. Pick the repository, the branch (`main`) and the main file path `app.py`.
 5. Open **Advanced settings** and choose **Python 3.12**. No secrets are needed.
 6. Click **Deploy**. The first build installs `requirements.txt` and takes a few minutes.
-7. When it is running, copy the public URL into this README and into `APP_URL` in `ui/theme.py`, then push again.
+7. When it is running, put the public URL in this README and in `APP_URL` in `ui/theme.py` (this app runs at https://rahnuma.streamlit.app/).
 
 To read the logs: open the app on share.streamlit.io, click **Manage app** (bottom right of the app),
 and the log panel shows the build and runtime messages. Use **Reboot app** from the same menu after a change

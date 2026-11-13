@@ -214,7 +214,7 @@ class NumberedCanvas(canvas.Canvas):
 class Doc(BaseDocTemplate):
     def __init__(self, path):
         super().__init__(str(path), pagesize=A4, leftMargin=M, rightMargin=M, topMargin=M, bottomMargin=M,
-                         title="Rahnuma \u2013 Code Explanation", author="Owais")
+                         title="Rahnuma \u2013 Code Explanation", author="Kinza")
         frame = Frame(M, M, W, PAGE_H - 2 * M, id="f", leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0)
         self.addPageTemplates([PageTemplate(id="title", frames=[frame]), PageTemplate(id="body", frames=[frame])])
 
@@ -280,7 +280,7 @@ def build(out_path):
     kb = load_kb()
     counts = kb.counts()
     url = app_url()
-    link = url or "https://______.streamlit.app"
+    link = url or "(live link not set)"
     n_tests, n_failed = test_count()
     samples = load_samples()
     results = {s["name"]: run_consultation(complete_answers(s["answers"], kb), kb) for s in samples}
@@ -294,9 +294,9 @@ def build(out_path):
           Paragraph("Code Explanation", ParagraphStyle("st", fontName=HEAD_FONT.replace("-Bold", ""), fontSize=16, leading=20, alignment=TA_CENTER)),
           Spacer(1, 1.6 * cm)]
     centre = ParagraphStyle("c", parent=BODY, alignment=TA_CENTER, fontSize=12, leading=16)
-    s += [Paragraph("Introduction to Artificial Intelligence (IAI) \u2013 CCP", centre),
+    s += [Paragraph("CT-262 Introduction to Artificial Intelligence (IAI)", centre),
           Paragraph("NED University of Engineering &amp; Technology", centre), Spacer(1, 2 * cm)]
-    info = [["Student name:", "Owais"], ["Roll No:", "________"], ["Submitted to:", "________"],
+    info = [["Student name:", "Kinza"], ["Roll No:", "CT-24056"], ["Submitted to:", "Sir Wasiq Noor"],
             ["Date:", date.today().strftime("%d %B %Y")]]
     lbl = ParagraphStyle("l", parent=BODY_L, fontSize=12, leading=16)
     rows = [[Paragraph(f"<b>{a}</b>", lbl), Paragraph(escape(b), lbl)] for a, b in info]
@@ -327,7 +327,7 @@ def build(out_path):
                     ["Decision support", "University filters, job outlook, action plan, alternatives and the What-if panel (views/result_view.py)."],
                     ["50+ conditions", f"{counts['total']} rules ({counts['compute']} compute, {counts['decision']} decision) with {counts['leaf_conditions']} leaf conditions."],
                     ["Streamlit UI", "Five pages in views/, top navigation in app.py."],
-                    ["Live link", link + ("" if url else " (to be filled in after deployment)")]],
+                    ["Live link", link]],
                    [0.25 * W, 0.75 * W]))
 
     # ---- 2 how to run
