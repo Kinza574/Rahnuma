@@ -232,19 +232,23 @@ def f_min_pct(items, wm, kb):
 
 
 def f_budget(items, wm, kb):
+    """Remove only offerings whose known fee band is above the budget.
+    Unknown fees stay, tagged, after the confirmed ones."""
     top = BUDGET_MAX_BAND[wm.value("budget")]
-    kept, removed = [], []
+    known, unknown, removed = [], [], []
     for it in items:
         band = it["fee_band"]
-        if band in FEE_ORDER and FEE_ORDER[band] <= top:
-            kept.append(it)
-        elif band not in FEE_ORDER and wm.value("budget") == "high":
-            it["tags"].append("fee not confirmed")
-            kept.append(it)
+        if band not in FEE_ORDER:
+            it["tags"].append(UNKNOWN_FEE_TAG)
+            unknown.append(it)
+        elif FEE_ORDER[band] <= top:
+            known.append(it)
         else:
-            why = "fee not confirmed" if band not in FEE_ORDER else f"{band} fee is above your budget"
-            removed.append((it["name"], why))
-    return kept, removed
+            removed.append((it["name"], f"{band} fee is above your budget"))
+    return known + unknown, removed
+
+
+UNKNOWN_FEE_TAG = "Fee not confirmed — check with the university"
 
 
 def f_city(items, wm, kb):

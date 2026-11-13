@@ -14,7 +14,14 @@ def test_ayesha(results, kb):
         assert any("PEC" in x for x in r.eligibility[fid]["reasons"])
     karachi = [u for u in r.universities["mbbs"]["items"] if u["city"] == "Karachi"]
     assert karachi
-    assert all(u["fee_band"] in ("low", "medium") for u in karachi)
+    # Known fees must be Low/Medium; unknown fees stay, tagged and listed after confirmed ones
+    bands = [u["fee_band"] for u in karachi]
+    assert "high" not in bands
+    assert bands[0] in ("low", "medium")
+    assert bands == sorted(bands, key=lambda b: b == "unknown")
+    for u in karachi:
+        if u["fee_band"] == "unknown":
+            assert "Fee not confirmed — check with the university" in u["tags"]
 
 
 def test_hamza(results, kb):
@@ -37,6 +44,7 @@ def test_sana(results, kb):
         assert items
         assert all(u["women_only"] and u["sector"] == "public" for u in items)
         assert any(u["uni_id"] == "fjwu" for u in items)
+        assert r.universities[fid]["relaxed"] == []
 
 
 def test_bilal(results, kb):

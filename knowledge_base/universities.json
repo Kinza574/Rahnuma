@@ -22,11 +22,12 @@
      "annual_fee_pkr": null,
      "min_pct": 60,
      "tests": [
-      "NED entry test"
+      "NED entry test (pass mark 50%)"
      ],
      "test_keys": [],
-     "source_url": "https://www.neduet.edu.pk/academic_programmes",
-     "verified": false
+     "source_url": "https://www.neduet.edu.pk/admission",
+     "verified": true,
+     "note": "Undergraduate Admissions FAQ (PDF linked from this page): 60% for BE, B.Arch and BS Computer Science"
     },
     {
      "field": "me",
@@ -34,11 +35,12 @@
      "annual_fee_pkr": null,
      "min_pct": 60,
      "tests": [
-      "NED entry test"
+      "NED entry test (pass mark 50%)"
      ],
      "test_keys": [],
-     "source_url": "https://www.neduet.edu.pk/academic_programmes",
-     "verified": false
+     "source_url": "https://www.neduet.edu.pk/admission",
+     "verified": true,
+     "note": "Undergraduate Admissions FAQ (PDF linked from this page): 60% for BE, B.Arch and BS Computer Science"
     },
     {
      "field": "civil",
@@ -46,50 +48,55 @@
      "annual_fee_pkr": null,
      "min_pct": 60,
      "tests": [
-      "NED entry test"
+      "NED entry test (pass mark 50%)"
      ],
      "test_keys": [],
-     "source_url": "https://www.neduet.edu.pk/academic_programmes",
-     "verified": false
+     "source_url": "https://www.neduet.edu.pk/admission",
+     "verified": true,
+     "note": "Undergraduate Admissions FAQ (PDF linked from this page): 60% for BE, B.Arch and BS Computer Science"
     },
     {
      "field": "cs",
      "fee_band": "unknown",
      "annual_fee_pkr": null,
-     "min_pct": null,
+     "min_pct": 60,
      "tests": [
-      "NED entry test"
+      "NED entry test (pass mark 50%)"
      ],
      "test_keys": [],
-     "source_url": "https://www.neduet.edu.pk/academic_programmes",
-     "verified": false
+     "source_url": "https://www.neduet.edu.pk/admission",
+     "verified": true,
+     "note": "Undergraduate Admissions FAQ (PDF linked from this page): 60% for BE, B.Arch and BS Computer Science"
     },
     {
      "field": "se",
      "fee_band": "unknown",
      "annual_fee_pkr": null,
-     "min_pct": null,
+     "min_pct": 50,
      "tests": [
-      "NED entry test"
+      "NED entry test (pass mark 50%)"
      ],
      "test_keys": [],
-     "source_url": "https://www.neduet.edu.pk/academic_programmes",
-     "verified": false
+     "source_url": "https://www.neduet.edu.pk/admission",
+     "verified": true,
+     "note": "Undergraduate Admissions FAQ: 50% for BS programmes other than Computer Science"
     },
     {
      "field": "arch",
      "fee_band": "unknown",
      "annual_fee_pkr": null,
-     "min_pct": null,
+     "min_pct": 60,
      "tests": [
-      "NED entry test"
+      "NED entry test (pass mark 50%)"
      ],
      "test_keys": [],
-     "source_url": "https://www.neduet.edu.pk/academic_programmes",
-     "verified": false
+     "source_url": "https://www.neduet.edu.pk/admission",
+     "verified": true,
+     "note": "Undergraduate Admissions FAQ (PDF linked from this page): 60% for BE, B.Arch and BS Computer Science PCATP July 2026: batches 2020 and 2021 accredited.",
+     "pcatp_listed": true
     }
    ],
-   "notes": "Programme list confirmed; eligibility and fees are in PDFs that could not be read."
+   "notes": "Eligibility from the NED Undergraduate Admissions FAQ (2026). Fees are in the prospectus PDF, which was too large to read."
   },
   {
    "id": "uok",
@@ -342,7 +349,7 @@
    "city": "Karachi",
    "sector": "private",
    "women_only": false,
-   "hostel": null,
+   "hostel": "yes",
    "recognition": [
     "HEC",
     "PMDC",
@@ -352,22 +359,25 @@
    "offerings": [
     {
      "field": "mbbs",
-     "fee_band": "unknown",
-     "annual_fee_pkr": null,
-     "min_pct": 60,
+     "fee_band": "high",
+     "annual_fee_pkr": 1704000,
+     "min_pct": 70,
      "tests": [
       "AKU admission test",
+      "MDCAT",
       "Interview"
      ],
-     "test_keys": [],
+     "test_keys": [
+      "mdcat"
+     ],
      "source_url": "https://www.aku.edu/admissions/mbbs/Pages/home.aspx",
-     "verified": false,
-     "note": "Eligibility and fees are in PDFs that were not read"
+     "verified": true,
+     "note": "Pre-Medical HSSC 70% minimum; tuition 2026-27 (MBBS Admission Information and fee PDFs)"
     },
     {
      "field": "nursing",
-     "fee_band": "unknown",
-     "annual_fee_pkr": null,
+     "fee_band": "medium",
+     "annual_fee_pkr": 854000,
      "min_pct": 50,
      "tests": [
       "AKU admission test"
@@ -375,7 +385,7 @@
      "test_keys": [],
      "source_url": "https://www.aku.edu/admissions/bscn/Pages/home.aspx",
      "verified": true,
-     "note": "BScN, min 50% HSSC Pre-Medical"
+     "note": "BScN tuition 2026-27 (fee PDF); min 50% HSSC Pre-Medical"
     }
    ],
    "notes": "No BDS, Pharm-D or DPT in its Pakistan undergraduate list."
@@ -687,7 +697,8 @@
      "test_keys": [],
      "source_url": "https://indusvalley.edu.pk/admission-undergraduate/",
      "verified": true,
-     "note": "Estimate: Rs 21,400 per credit hour x 18 x 2"
+     "note": "Estimate: Rs 21,400 per credit hour x 18 x 2 PCATP July 2026: batch 2021 accredited; batches 2022 and 2023 on hold.",
+     "pcatp_listed": true
     },
     {
      "field": "fashion",
@@ -878,7 +889,8 @@
    "hostel": null,
    "recognition": [
     "HEC",
-    "PEC (engineering programmes)"
+    "PEC (engineering programmes)",
+    "PCATP (B.Arch)"
    ],
    "website": "https://www.ssuet.edu.pk",
    "offerings": [
@@ -931,6 +943,20 @@
      "source_url": "https://www.ssuet.edu.pk/admissions/undergraduate-admissions/",
      "verified": true,
      "note": "Offered; minimum % not stated"
+    },
+    {
+     "field": "arch",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://pcatp.org.pk/document/Accreditation%20status%20of%20institutions%20July%202026.pdf",
+     "verified": false,
+     "note": "B.Arch listed by PCATP (July 2026); eligibility not read",
+     "pcatp_listed": true
     }
    ],
    "notes": "Fee table is an image and could not be read."
@@ -1051,7 +1077,8 @@
      ],
      "source_url": "https://admission.uet.edu.pk/program/1",
      "verified": true,
-     "note": "Year-1 total, subsidised seat (Fall 2026)"
+     "note": "Year-1 total, subsidised seat (Fall 2026) PCATP July 2026: batches 2019 and 2020 accredited.",
+     "pcatp_listed": true
     }
    ],
    "notes": ""
@@ -1154,100 +1181,124 @@
    "city": "Lahore",
    "sector": "public",
    "women_only": false,
-   "hostel": "yes",
+   "hostel": "no",
    "recognition": [
-    "HEC"
+    "HEC",
+    "PCATP (B.Arch)"
    ],
    "website": "https://pu.edu.pk",
    "offerings": [
     {
      "field": "cs",
-     "fee_band": "unknown",
-     "annual_fee_pkr": null,
-     "min_pct": null,
+     "fee_band": "low",
+     "annual_fee_pkr": 110000,
+     "min_pct": 50,
      "tests": [
-      "University test"
+      "PU entry test"
      ],
      "test_keys": [],
      "source_url": "https://pu.edu.pk/fee",
-     "verified": false
+     "verified": true,
+     "note": "50% with Maths (or 6 credits of Maths deficiency courses). PU Admission Regulations 2026 and Fee/Dues Schedule 2026-27 (PDFs); fee = 2 x semester tuition, regular morning"
     },
     {
      "field": "se",
-     "fee_band": "unknown",
-     "annual_fee_pkr": null,
-     "min_pct": null,
+     "fee_band": "low",
+     "annual_fee_pkr": 110000,
+     "min_pct": 50,
      "tests": [
-      "University test"
+      "PU entry test"
      ],
      "test_keys": [],
      "source_url": "https://pu.edu.pk/fee",
-     "verified": false
+     "verified": true,
+     "note": "PU Admission Regulations 2026 and Fee/Dues Schedule 2026-27 (PDFs); fee = 2 x semester tuition, regular morning"
     },
     {
      "field": "bba",
-     "fee_band": "unknown",
-     "annual_fee_pkr": null,
-     "min_pct": null,
+     "fee_band": "low",
+     "annual_fee_pkr": 85580,
+     "min_pct": 45,
      "tests": [
-      "University test"
+      "PU entry test"
      ],
      "test_keys": [],
      "source_url": "https://pu.edu.pk/fee",
-     "verified": false
+     "verified": true,
+     "note": "FA / F.Sc. / I.Com (second division). PU Admission Regulations 2026 and Fee/Dues Schedule 2026-27 (PDFs); fee = 2 x semester tuition, regular morning"
     },
     {
      "field": "af",
-     "fee_band": "unknown",
-     "annual_fee_pkr": null,
-     "min_pct": null,
+     "fee_band": "low",
+     "annual_fee_pkr": 91960,
+     "min_pct": 45,
      "tests": [
-      "University test"
+      "PU entry test"
      ],
      "test_keys": [],
      "source_url": "https://pu.edu.pk/fee",
-     "verified": false
+     "verified": true,
+     "note": "Intermediate (second division). PU Admission Regulations 2026 and Fee/Dues Schedule 2026-27 (PDFs); fee = 2 x semester tuition, regular morning"
     },
     {
      "field": "law",
-     "fee_band": "unknown",
-     "annual_fee_pkr": null,
+     "fee_band": "low",
+     "annual_fee_pkr": 110000,
      "min_pct": 45,
      "tests": [
-      "HEC LAT"
+      "HEC LAT (50%)",
+      "PU admission test"
      ],
      "test_keys": [
       "lat"
      ],
      "source_url": "https://pu.edu.pk/fee",
-     "verified": false
+     "verified": true,
+     "note": "LLB. PU Admission Regulations 2026 and Fee/Dues Schedule 2026-27 (PDFs); fee = 2 x semester tuition, regular morning"
     },
     {
      "field": "psych",
-     "fee_band": "unknown",
-     "annual_fee_pkr": null,
+     "fee_band": "low",
+     "annual_fee_pkr": 71150,
      "min_pct": null,
      "tests": [
       "University test"
      ],
      "test_keys": [],
      "source_url": "https://pu.edu.pk/fee",
-     "verified": false
+     "verified": false,
+     "note": "Applied Psychology fee read; 4-year eligibility not read. PU Admission Regulations 2026 and Fee/Dues Schedule 2026-27 (PDFs); fee = 2 x semester tuition, regular morning"
     },
     {
      "field": "pharmd",
-     "fee_band": "unknown",
-     "annual_fee_pkr": null,
-     "min_pct": null,
+     "fee_band": "low",
+     "annual_fee_pkr": 110000,
+     "min_pct": 60,
      "tests": [
-      "University test"
+      "PU entry test"
      ],
      "test_keys": [],
      "source_url": "https://pu.edu.pk/fee",
-     "verified": false
+     "verified": true,
+     "note": "F.Sc. Pre-Medical 60%. PU Admission Regulations 2026 and Fee/Dues Schedule 2026-27 (PDFs); fee = 2 x semester tuition, regular morning"
+    },
+    {
+     "field": "arch",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": 60,
+     "tests": [
+      "Drawing, English and Mathematics test",
+      "Interview"
+     ],
+     "test_keys": [],
+     "source_url": "https://pu.edu.pk/fee",
+     "verified": true,
+     "note": "B.Arch, College of Art & Design: 60% in Intermediate with any three listed subjects. Listed by PCATP (July 2026).",
+     "pcatp_listed": true
     }
    ],
-   "notes": "Programmes confirmed in the fee directory; Mass Communication and Fine Arts showed 'No programs available', so they were removed."
+   "notes": "PU admission regulations say hostel places are not given to students admitted in BS and Pharm-D programmes."
   },
   {
    "id": "lums",
@@ -1364,7 +1415,8 @@
      "test_keys": [],
      "source_url": "https://nca.edu.pk/college?name=admission-policy-procedures",
      "verified": true,
-     "note": "Open-merit tuition (https://nca.edu.pk/fee_structure?name=fee-structure-undergraduate-programmes)"
+     "note": "Open-merit tuition (https://nca.edu.pk/fee_structure?name=fee-structure-undergraduate-programmes) PCATP July 2026: batches 2021 and 2022 accredited.",
+     "pcatp_listed": true
     },
     {
      "field": "finearts",
@@ -1664,7 +1716,9 @@
      ],
      "test_keys": [],
      "source_url": "https://uol.edu.pk",
-     "verified": false
+     "verified": false,
+     "note": "PCATP July 2026: batches 2019 and 2020 accredited.",
+     "pcatp_listed": true
     },
     {
      "field": "law",
@@ -1727,7 +1781,8 @@
    "women_only": true,
    "hostel": null,
    "recognition": [
-    "HEC"
+    "HEC",
+    "PCATP (B.Arch)"
    ],
    "website": "https://www.lcwu.edu.pk",
    "offerings": [
@@ -1786,6 +1841,20 @@
      "source_url": "https://www.lcwu.edu.pk/admission-notice-fall-26.html",
      "verified": true,
      "note": "At least second division"
+    },
+    {
+     "field": "arch",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://pcatp.org.pk/document/Accreditation%20status%20of%20institutions%20July%202026.pdf",
+     "verified": false,
+     "note": "B.Arch listed by PCATP (July 2026); eligibility not read",
+     "pcatp_listed": true
     }
    ],
    "notes": ""
@@ -1892,7 +1961,9 @@
       "sat"
      ],
      "source_url": "https://nust.edu.pk",
-     "verified": false
+     "verified": false,
+     "note": "PCATP July 2026: batch 2021 accredited.",
+     "pcatp_listed": true
     },
     {
      "field": "bba",
@@ -2028,7 +2099,8 @@
      ],
      "source_url": "https://www.comsats.edu.pk/fee-structure.aspx",
      "verified": false,
-     "note": "Fall 2025 fee"
+     "note": "Fall 2025 fee PCATP July 2026: Islamabad batches 2020 and 2021 accredited.",
+     "pcatp_listed": true
     },
     {
      "field": "se",
@@ -2926,8 +2998,7 @@
    "hostel": null,
    "recognition": [
     "HEC",
-    "PEC (engineering programmes)",
-    "PCATP (B.Arch)"
+    "PEC (engineering programmes)"
    ],
    "website": "https://www.uetpeshawar.edu.pk",
    "offerings": [
@@ -2978,21 +3049,9 @@
      "test_keys": [],
      "source_url": "https://www.uetpeshawar.edu.pk",
      "verified": false
-    },
-    {
-     "field": "arch",
-     "fee_band": "unknown",
-     "annual_fee_pkr": null,
-     "min_pct": null,
-     "tests": [
-      "ETEA engineering test"
-     ],
-     "test_keys": [],
-     "source_url": "https://www.uetpeshawar.edu.pk",
-     "verified": false
     }
    ],
-   "notes": "Prospectus PDF was too large to read."
+   "notes": "Prospectus PDF was too large to read. PCATP (July 2026) lists B.Arch only at the Abbottabad campus, so Architecture was removed for Peshawar."
   },
   {
    "id": "kmu",
@@ -3235,7 +3294,9 @@
      ],
      "test_keys": [],
      "source_url": "https://www.muet.edu.pk",
-     "verified": false
+     "verified": false,
+     "note": "PCATP July 2026: batch 2019 conditional; accreditation not granted to batch 2020.",
+     "pcatp_listed": true
     }
    ],
    "notes": "Website refused automated access."
@@ -3681,7 +3742,8 @@
    "hostel": null,
    "recognition": [
     "HEC",
-    "PEC (engineering programmes)"
+    "PEC (engineering programmes)",
+    "PCATP (B.Arch)"
    ],
    "website": "https://www.buitms.edu.pk",
    "offerings": [
@@ -3759,6 +3821,20 @@
      "source_url": "https://www.buitms.edu.pk/Admission",
      "verified": false,
      "note": "Tuition only, 2 x semester (https://www.buitms.edu.pk/Fee-Structure)"
+    },
+    {
+     "field": "arch",
+     "fee_band": "unknown",
+     "annual_fee_pkr": null,
+     "min_pct": null,
+     "tests": [
+      "University test"
+     ],
+     "test_keys": [],
+     "source_url": "https://pcatp.org.pk/document/Accreditation%20status%20of%20institutions%20July%202026.pdf",
+     "verified": false,
+     "note": "B.Arch listed by PCATP (July 2026); eligibility not read",
+     "pcatp_listed": true
     }
    ],
    "notes": "Eligibility PDF was not read."
@@ -3819,5 +3895,6 @@
    ],
    "notes": ""
   }
- ]
+ ],
+ "pcatp_source": "https://pcatp.org.pk/document/Accreditation%20status%20of%20institutions%20July%202026.pdf"
 }
