@@ -1,5 +1,7 @@
 """Shared result page (used by the wizard and Quick Diagnosis)."""
 
+from datetime import date
+
 import pandas as pd
 import streamlit as st
 
@@ -10,9 +12,10 @@ FEE_WORD = {"low": "Low", "medium": "Medium", "high": "High", "unknown": "Not co
 STATUS_WORD = {"eligible": "Eligible", "conditional": "Conditional", "not_eligible": "Not eligible"}
 
 
-def render(result, answers, kb, prefix, on_use=None, use_ask_if=True):
+def render(result, answers, kb, prefix, on_use=None, use_ask_if=True, name=None):
+    report_head(name)
     if result.status == "insufficient":
-        st.header("Insufficient data")
+        c.section("Insufficient data")
         st.write("The system needs a few more answers before it can give advice:")
         for m in result.missing:
             st.markdown(f"- {m}")
@@ -24,38 +27,39 @@ def render(result, answers, kb, prefix, on_use=None, use_ask_if=True):
 
     technical = st.toggle("Show technical details", key=f"{prefix}_tech",
                           help="Shows rule IDs, certainty factors (CF) and the CF calculations.")
-
-    st.header("Your result")
-    c.summary_box(result.summary)
-
+    st.markdown(f'<p class="rn-summary">{c.esc(result.summary)}</p>', unsafe_allow_html=True)
     profile_section(result, kb, technical)
     top_section(result, kb, technical)
     not_eligible_section(result, kb)
     universities_section(result, kb, prefix)
     outlook_section(result, kb)
-    if result.warnings:
-        st.subheader("Warnings")
-        for w in result.warnings:
-            c.warning_box(w)
-    with st.expander("How the system reached this"):
+    what_if(result, answers, kb, prefix, on_use, use_ask_if)
+    c.section("How the system reached this")
+    with st.expander(f"Show all {len(result.trace)} steps"):
         c.muted("Each line is one rule firing, in the order the engine fired them.")
         for i, s in enumerate(steps(result, kb, technical), 1):
             st.markdown(f"{i}. {s}")
     st.download_button("Download my result (TXT)", result_text(result, answers, kb), file_name="rahnuma_result.txt",
                        mime="text/plain", key=f"{prefix}_dl")
-    what_if(result, answers, kb, prefix, on_use, use_ask_if)
+
+
+def report_head(name):
+    who = name.strip() if name and name.strip() else "Student"
+    today = date.today().strftime("%d %B %Y")
+    st.markdown(f'<div class="rn-report-head"><div class="who">Counselling report — {c.esc(who)}</div>'
+                f'<div class="meta">{today} · Rahnuma University Field Advisor</div></div>', unsafe_allow_html=True)
 
 
 def profile_section(result, kb, technical):
     p = result.profile
-    st.subheader("Your profile diagnosis")
+    c.section("Diagnosis")
     rows = []
     band = p["band"] or "—"
     note = "" if p["marks_reliable"] in (None, 1.0) else " (estimate: Part-I marks)"
-    rows.append(("Marks band", f"{band}{note}"))
+    rows.append(("Marks band", c.esc(f"{band}{note}")))
     if p["aptitudes"]:
         strong = [f"{n} — {w}" + (f" (CF {cf:.2f})" if technical else "") for n, cf, w in p["aptitudes"][:5]]
-        rows.append(("Strongest aptitudes", "<br>".join(c.esc(s) for s in strong)))
+        rows.append(("Strongest aptitudes", "<br>".join(c.esc(x) for x in strong)))
     else:
         rows.append(("Strongest aptitudes", "None found from your answers"))
     if p["eligible"]:
@@ -66,29 +70,28 @@ def profile_section(result, kb, technical):
         rows.append(("Not eligible", c.esc(", ".join(p["not_eligible"]))))
     if result.warnings:
         rows.append(("Checks", "<br>".join(c.esc(w) for w in result.warnings)))
-    body = "".join(f'<tr><td style="width:32%;vertical-align:top;color:#5F6B6A">{k}</td><td>{v}</td></tr>' for k, v in rows)
-    st.markdown(f'<div class="rn-card"><table style="width:100%;font-size:0.93rem">{body}</table></div>', unsafe_allow_html=True)
+    body = "".join(f"<dt>{k}</dt><dd>{v}</dd>" for k, v in rows)
+    st.markdown(f'<dl class="rn-dl">{body}</dl>', unsafe_allow_html=True)
 
 
 def top_section(result, kb, technical):
-    st.subheader("Recommended fields")
+    c.section("Recommended fields")
     for text in result.advice:
         c.warning_box(text)
-    if not result.top:
-        return
     for i, t in enumerate(result.top, 1):
         f = kb.fields[t["id"]]
-        chip = c.label_chip(t["label"]) + (c.label_chip("Conditional", soft=True) if t["status"] == "conditional" else "")
-        title = f"{i}. {c.esc(t['name'])} {chip}"
-        body = f'<p class="rn-muted">{c.esc(f["description"])} {f["years"]} years. Entry: {c.esc(f["required_test"])}.</p>'
-        body += "<ul>" + "".join(f"<li>{c.esc(r)}</li>" for r in t["reasons"][:3]) + "</ul>"
-        for cond in t["conditions"]:
-            body += f"<p><b>Condition:</b> {c.esc(cond)}</p>"
+        cond = '<span class="rn-cond">Conditional</span>' if t["status"] == "conditional" else ""
+        body = f'<div class="name">{c.esc(t["name"])}{cond}</div>'
+        body += c.confidence_bar(t["cf"], t["label"] + (f" · CF {t['cf']:.3f}" if technical else ""))
+        body += f'<div class="rn-muted">{c.esc(f["description"])} {f["years"]} years. Entry: {c.esc(f["required_test"])}.</div>'
+        body += "<ul style='margin:0.4rem 0 0 0'>" + "".join(f"<li>{c.esc(r)}</li>" for r in t["reasons"][:3]) + "</ul>"
+        for x in t["conditions"]:
+            body += f"<div><b>Condition:</b> {c.esc(x)}</div>"
         if t["notes"]:
-            body += f'<p class="rn-muted">Note: {c.esc("; ".join(t["notes"]))}</p>'
+            body += f'<div class="rn-muted">Note: {c.esc("; ".join(t["notes"]))}</div>'
         if technical:
-            body += f'<p class="rn-muted">CF {t["cf"]:.3f} · evidence from {c.esc(", ".join(t["rules"]))}</p>'
-        c.card(title, body)
+            body += f'<div class="rn-muted">Evidence from {c.esc(", ".join(t["rules"]))}</div>'
+        st.markdown(f'<div class="rn-rec"><div class="num">{i}</div><div>{body}</div></div>', unsafe_allow_html=True)
     if result.action_plan:
         st.markdown("**Your action plan**")
         for step in result.action_plan:
@@ -109,7 +112,7 @@ def not_eligible_section(result, kb):
 def universities_section(result, kb, prefix):
     if not result.top:
         return
-    st.subheader("Matching universities")
+    c.section("Matching universities")
     c.muted(f"University data as of {kb.universities['as_of']}. Rows marked 'Not yet verified' could not be checked on an official page.")
     for t in result.top:
         data = result.universities.get(t["id"])
@@ -129,14 +132,15 @@ def universities_section(result, kb, prefix):
         df = pd.DataFrame([{
             "University": it["name"], "City": it["city"], "Sector": it["sector"].title(),
             "Fee band": FEE_WORD.get(it["fee_band"], it["fee_band"]),
-            "Hostel": it["hostel"].title(), "Women only": "Yes" if it["women_only"] else "No",
+            "Hostel": "Not confirmed" if it["hostel"] == "unknown" else it["hostel"].title(), "Women only": "Yes" if it["women_only"] else "No",
             "Required test": f"{it['tests']} ({it['test_status']})",
-            "Notes": "; ".join(it["tags"]), "Source": it["source_url"],
+            "Notes": "; ".join(it["tags"]), "Source": it["source_url"], "Verified": it["verified"],
         } for it in items])
         with st.popover("Filter this table"):
             cities = st.multiselect("City", sorted(df["City"].unique()), key=f"{prefix}_fc_{t['id']}")
             sectors = st.multiselect("Sector", sorted(df["Sector"].unique()), key=f"{prefix}_fs_{t['id']}")
             fees = st.multiselect("Fee band", sorted(df["Fee band"].unique()), key=f"{prefix}_ff_{t['id']}")
+            verified = st.checkbox("Show only verified", key=f"{prefix}_fv_{t['id']}")
             women = st.checkbox("Women only", key=f"{prefix}_fw_{t['id']}")
             hostel = st.checkbox("Hostel available", key=f"{prefix}_fh_{t['id']}")
         view = df
@@ -146,12 +150,15 @@ def universities_section(result, kb, prefix):
             view = view[view["Sector"].isin(sectors)]
         if fees:
             view = view[view["Fee band"].isin(fees)]
+        if verified:
+            view = view[view["Verified"]]
         if women:
             view = view[view["Women only"] == "Yes"]
         if hostel:
             view = view[view["Hostel"].isin(["Yes", "Limited"])]
         st.dataframe(view, hide_index=True, width="stretch",
-                     column_config={"Source": st.column_config.LinkColumn("Source", display_text="Open")})
+                     column_config={"Source": st.column_config.LinkColumn("Source", display_text="Open"), "Verified": None})
+        c.muted(f"{len(view)} of {len(df)} shown · {int(df['Verified'].sum())} verified")
         if data["removed"]:
             with st.expander(f"Removed by your filters ({len(data['removed'])})"):
                 for name, why in data["removed"]:
@@ -161,7 +168,7 @@ def universities_section(result, kb, prefix):
 def outlook_section(result, kb):
     if not result.job_outlook:
         return
-    st.subheader("Job outlook")
+    c.section("Job outlook")
     c.muted(f"Market data as of {kb.market['as_of']}. {kb.market.get('context', '')}")
     for fid, m in result.job_outlook.items():
         conf = m["confidence"]
@@ -172,7 +179,7 @@ def outlook_section(result, kb):
             body += f'<p class="rn-muted">{c.esc(n)}</p>'
         if m["sources"]:
             body += f'<p class="rn-muted">Sources: {c.esc("; ".join(m["sources"]))}</p>'
-        c.card(c.esc(kb.fields[fid]["name"]), body)
+        st.markdown(f'<div style="margin-bottom:0.8rem"><b>{c.esc(kb.fields[fid]["name"])}</b>{body}</div>', unsafe_allow_html=True)
 
 
 def result_text(result, answers, kb):
@@ -202,7 +209,7 @@ def _f(v):
 
 
 def what_if(result, answers, kb, prefix, on_use, use_ask_if):
-    st.subheader("What if?")
+    c.section("What if?")
     c.muted("Change a few answers and see what would change. Your saved answers stay the same unless you press 'Use these answers'.")
     k = f"{prefix}_wi"
     new = dict(answers)

@@ -117,7 +117,7 @@ def reasons_for(fid, wm, kb, technical=False):
                 if f is None:
                     continue
                 if name in kb.aptitudes:
-                    out.append(f"Your {kb.aptitudes[name].lower()} aptitude is {word(f.cf, kb).lower()}.")
+                    out.append(f"{kb.aptitudes[name]}: {word(f.cf, kb).lower()}.")
                 else:
                     out.append(f"You answered {answer_phrase(name, f.value, f.cf, kb)}.")
         elif base == "MK01":

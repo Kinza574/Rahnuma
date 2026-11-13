@@ -81,7 +81,9 @@ def run_consultation(answers, kb, use_ask_if=True):
     r.warnings = [text for _, text in wm.warnings]
     if wm.result.get("status") == "insufficient":
         r.status = "insufficient"
-        r.missing = wm.value("missing", [])
+        # list missing items in rule order (DS01 stream, DS02 Inter %, ...)
+        order = [a["add_missing"] for rr in kb.rules for a in rr["then"] if "add_missing" in a]
+        r.missing = sorted(wm.value("missing", []), key=lambda m: order.index(m) if m in order else len(order))
         return r
 
     for fid, f in kb.fields.items():
@@ -118,13 +120,15 @@ def run_consultation(answers, kb, use_ask_if=True):
 def profile(wm, r, kb):
     """The 'diagnosis': marks band, aptitudes, eligibility conditions met or missed."""
     apts = sorted(((kb.aptitudes[n], f.cf) for n, f in wm.facts.items() if n in kb.aptitudes), key=lambda a: -a[1])
-    met, missed = [], []
+    met, by_reason = [], {}
     for fid, e in r.eligibility.items():
         name = kb.fields[fid]["name"]
         if e["status"] == "eligible":
             met.append(name)
         elif e["status"] == "conditional":
-            missed.append(f"{name} is conditional: {'; '.join(e['reasons'])}")
+            by_reason.setdefault("; ".join(e["reasons"]), []).append(name)
+    # fields that share a reason are grouped: "EE, ME, Civil: PEC lets ..."
+    missed = [f"{', '.join(names)}: {reason}" for reason, names in by_reason.items()]
     not_elig = [kb.fields[f]["name"] for f, e in r.eligibility.items() if e["status"] == "not_eligible"]
     return {
         "band": wm.value("inter_band"),

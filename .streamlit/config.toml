@@ -1,13 +1,21 @@
 [theme]
 base = "light"
-primaryColor = "#1F5F5B"
-backgroundColor = "#FFFFFF"
-secondaryBackgroundColor = "#F4F5F5"
-textColor = "#1E2222"
-font = "sans serif"
+primaryColor = "#7A2E3A"
+backgroundColor = "#FAF8F5"
+secondaryBackgroundColor = "#F1ECE5"
+textColor = "#1F1F1F"
+borderColor = "#E4DED6"
+showWidgetBorder = true
+baseRadius = "small"
+font = "sans-serif"
+headingFont = "serif"
+headingFontWeights = 600
 
 [client]
 toolbarMode = "minimal"
+
+[browser]
+gatherUsageStats = false
 
 [server]
 headless = true

@@ -13,7 +13,7 @@ from ui import state
 
 def render():
     kb = state.kb()
-    st.title("Knowledge Base")
+    c.page_title("Knowledge Base", "All 90 rules, their conditions and the thresholds they use")
     c.expert_note()
     counts = kb.counts()
     m = st.columns(4)
@@ -34,7 +34,7 @@ def render():
     st.dataframe(df, hide_index=True, width="stretch", height=420,
                  column_config={"Rule": st.column_config.TextColumn(width="large")})
 
-    st.subheader("Rule inspector")
+    c.section("Rule inspector")
     rid = st.selectbox("Rule", [r["id"] for r in kb.rules], index=None, placeholder="Choose a rule ID")
     if rid:
         inspect(kb, kb.rule_by_id[rid])

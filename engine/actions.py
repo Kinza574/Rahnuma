@@ -358,7 +358,7 @@ def _action_plan(act, rid, bind, match, cf, wm, kb):
         if e and e.value == "conditional":
             for p in e.meta.get("plans", []):
                 by_step.setdefault(p.rstrip("."), []).append(kb.fields[fid]["name"])
-    plan = [f"{p} ({', '.join(names)})." for p, names in by_step.items()]
+    plan = [f"{p} — for {', '.join(names)}." for p, names in by_step.items()]
     wm.result["action_plan"] = plan
     return [f"action plan with {len(plan)} steps"]
 

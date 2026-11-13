@@ -1,4 +1,4 @@
-"""Quick Diagnosis: every question on one form, plus five sample students.
+"""Counsellor Desk (quick diagnosis): every question on one screen, plus five sample students.
 
 Here the data-sufficiency rules (G0) decide what is missing, so an empty
 submit gives 'Insufficient data'.
@@ -12,11 +12,12 @@ from ui import state
 from views import result_view
 
 PREFIX = "qd"
+TAB_NAMES = ["About you", "Education", "Interests", "Skills", "Tests", "Budget"]
 
 
 def clear_form():
     for k in list(st.session_state):
-        if k.startswith(PREFIX + "_") or k in ("qd_result", "qd_answers"):
+        if k.startswith(PREFIX + "_") or k in ("qd_result", "qd_answers", "qd_loaded"):
             del st.session_state[k]
 
 
@@ -46,35 +47,46 @@ def collect(kb):
     return answers
 
 
+def sample_cards(kb, samples):
+    st.markdown("**Sample students**")
+    cols = st.columns(len(samples))
+    for col, s in zip(cols, samples):
+        with col.container(border=True):
+            st.markdown(f'<div class="rn-sample"><b>{c.esc(s["name"])}</b><br>{c.esc(s["blurb"])}</div>', unsafe_allow_html=True)
+            st.button("Load", key=f"qd_load_{s['name']}", on_click=load_sample, args=(s, kb), width="stretch")
+
+
 def render():
     kb = state.kb()
-    st.title("Quick Diagnosis")
-    c.muted("All questions on one page. Leave anything blank to see how the system handles missing data.")
+    c.page_title("Counsellor Desk", "Quick diagnosis on one screen")
     samples = load_samples()
-    cols = st.columns(len(samples) + 1)
-    for col, s in zip(cols, samples):
-        col.button(f"Load sample: {s['name']}", key=f"qd_load_{s['name']}", on_click=load_sample, args=(s, kb), width="stretch")
-    cols[-1].button("Clear form", on_click=clear_form, width="stretch")
-    if st.session_state.get("qd_loaded"):
-        name = st.session_state.qd_loaded
-        expected = next((s["expected"] for s in samples if s["name"] == name), "")
-        c.muted(f"Loaded sample: {name}. Expected: {expected}")
+    sample_cards(kb, samples)
+    loaded = st.session_state.get("qd_loaded")
+    if loaded:
+        expected = next((s["expected"] for s in samples if s["name"] == loaded), "")
+        c.muted(f"Loaded: {loaded}. Expected result: {expected}")
 
-    with st.form("qd_form"):
-        for s in kb.steps:
-            st.subheader(f"{s['n']}. {s['title']}")
-            for q in kb.questions:
-                if q["step"] == s["n"]:
-                    c.question(q, kb, PREFIX, {}, why=False, in_form=True)
-        submitted = st.form_submit_button("Run diagnosis", type="primary")
+    left, right = st.columns([1, 1.6], gap="large")
+    with left:
+        with st.form("qd_form", border=False):
+            tabs = st.tabs(TAB_NAMES)
+            for tab, s in zip(tabs, kb.steps):
+                with tab:
+                    for q in kb.questions:
+                        if q["step"] == s["n"]:
+                            c.question(q, kb, PREFIX, {}, why=False, in_form=True)
+            submitted = st.form_submit_button("Run diagnosis", type="primary", width="stretch")
+        st.button("Clear form", on_click=clear_form, width="stretch")
     if submitted:
         answers = collect(kb)
         st.session_state.qd_answers = answers
         st.session_state.qd_result = run_consultation(answers, kb, use_ask_if=False)
-    if st.session_state.get("qd_result"):
-        st.divider()
-        result_view.render(st.session_state.qd_result, st.session_state.qd_answers, kb, "qd",
-                           on_use=use_whatif, use_ask_if=False)
+    with right:
+        if st.session_state.get("qd_result"):
+            result_view.render(st.session_state.qd_result, st.session_state.qd_answers, kb, "qd",
+                               on_use=use_whatif, use_ask_if=False, name=st.session_state.get("qd_loaded"))
+        else:
+            c.muted("Fill in the form (or load a sample) and press 'Run diagnosis'. The report appears here.")
     c.footer()
 
 

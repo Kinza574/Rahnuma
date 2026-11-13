@@ -13,11 +13,11 @@ from ui import state
 
 def render():
     kb = state.kb()
-    st.title("Knowledge Acquisition")
+    c.page_title("Knowledge Acquisition", "Edit thresholds and data, check them, then apply for this session")
     c.expert_note()
     c.warning_box("Changes apply to this session only. Streamlit Cloud does not keep files after a restart, so download your changes.")
     if st.session_state.pop("ka_msg", None):
-        st.success("Applied for this session. New consultations use the changed knowledge.")
+        c.warning_box("Applied for this session. New consultations use the changed knowledge.")
     tabs = st.tabs(["Thresholds", "Universities", "Market data", "Rules"])
     with tabs[0]:
         thresholds_tab(kb)

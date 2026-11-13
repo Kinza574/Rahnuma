@@ -57,36 +57,43 @@ def restart():
 
 
 def welcome():
-    st.title("Find a university field that fits you")
-    st.markdown(
-        "- Answer a few questions about your studies, interests and plans.\n"
-        "- The system checks eligibility rules (PMDC, PEC, HEC) and your strengths.\n"
-        "- You get up to three fields, matching universities and the reasons behind each."
-    )
-    c.muted("Takes about 5 minutes. Your answers stay in this browser session.")
-    st.button("Start", type="primary", on_click=state.go, args=(1,))
+    c.page_title("Guided Counselling", "Step-by-step consultation and diagnosis")
+    left, right = st.columns([1, 2.2], gap="large")
+    with left:
+        c.step_list(state.kb().steps, 0)
+    with right:
+        st.markdown(
+            "Rahnuma works like a careful counsellor. It asks about your studies, interests and plans, "
+            "checks the admission rules (PMDC, PEC, HEC, PCATP) and then suggests up to three fields "
+            "with matching universities and the reasons behind each."
+        )
+        c.muted("About 5 minutes. Your answers stay in this browser session.")
+        st.button("Start", type="primary", on_click=state.go, args=(1,))
 
 
 def step_page(kb, step):
-    total = len(kb.steps)
-    title = kb.steps[step - 1]["title"]
-    c.step_header(step, total, title)
-    st.subheader(title)
+    c.page_title("Guided Counselling", "Step-by-step consultation and diagnosis")
     wiz = state.wizard()
-    qs = [q for q in kb.questions if q["step"] == step]
-    answers = current_answers(kb, qs)
-    shown = {q["id"] for q in visible_questions(answers, kb)}
-    for q in qs:
-        if q["id"] in shown:
-            c.question(q, kb, PREFIX, wiz["answers"], wiz["errors"].get(q["id"]))
-        else:
-            c.skipped(skip_text(q, answers, kb))
-    if wiz["errors"]:
-        c.error_text("Some answers are missing. Please check the messages above.")
-    left, right = st.columns(2)
-    if step > 1:
-        left.button("Back", on_click=on_back, args=(kb, step), width="stretch")
-    right.button("Next", type="primary", on_click=on_next, args=(kb, step), width="stretch")
+    left, right = st.columns([1, 2.2], gap="large")
+    with left:
+        c.step_list(kb.steps, step)
+    with right:
+        title = kb.steps[step - 1]["title"]
+        st.subheader(title)
+        qs = [q for q in kb.questions if q["step"] == step]
+        answers = current_answers(kb, qs)
+        shown = {q["id"] for q in visible_questions(answers, kb)}
+        for q in qs:
+            if q["id"] in shown:
+                c.question(q, kb, PREFIX, wiz["answers"], wiz["errors"].get(q["id"]))
+            else:
+                c.skipped(skip_text(q, answers, kb))
+        if wiz["errors"]:
+            c.error_text("Some answers are missing. Please check the messages above.")
+        b1, b2 = st.columns(2)
+        if step > 1:
+            b1.button("Back", on_click=on_back, args=(kb, step), width="stretch")
+        b2.button("Next", type="primary", on_click=on_next, args=(kb, step), width="stretch")
 
 
 def skip_text(q, answers, kb):
@@ -97,20 +104,28 @@ def skip_text(q, answers, kb):
 
 
 def review(kb):
-    st.title("Check your answers")
-    c.muted("Use Edit to change a group. Then press 'See my result'.")
-    answers = state.wizard()["answers"]
+    c.page_title("Guided Counselling", "Step-by-step consultation and diagnosis")
+    wiz = state.wizard()
+    answers = wiz["answers"]
     shown = visible_questions(answers, kb)
-    for s in kb.steps:
-        qs = [q for q in shown if q["step"] == s["n"]]
-        head, edit = st.columns([4, 1], vertical_alignment="center")
-        head.markdown(f"**{s['n']}. {s['title']}**")
-        edit.button("Edit", key=f"edit_{s['n']}", on_click=state.go, args=(s["n"],), width="stretch")
-        rows = "".join(f"<tr><td>{c.esc(q['label'])}</td><td><b>{c.esc(c.show_answer(q, kb, answers))}</b></td></tr>" for q in qs)
-        st.markdown(f'<table style="width:100%;font-size:0.92rem">{rows}</table>', unsafe_allow_html=True)
-    left, right = st.columns(2)
-    left.button("Back", on_click=state.go, args=(len(kb.steps),), width="stretch")
-    right.button("See my result", type="primary", on_click=see_result, args=(kb,), width="stretch")
+    left, right = st.columns([1, 2.2], gap="large")
+    with left:
+        c.step_list(kb.steps, len(kb.steps) + 1)
+    with right:
+        st.subheader("Check your answers")
+        c.muted("Use Edit to change a group, then press 'See my result'.")
+        for s in kb.steps:
+            qs = [q for q in shown if q["step"] == s["n"]]
+            with st.container(border=True):
+                head, edit = st.columns([4, 1], vertical_alignment="center")
+                head.markdown(f"**{s['n']}. {s['title']}**")
+                edit.button("Edit", key=f"edit_{s['n']}", on_click=state.go, args=(s["n"],), width="stretch")
+                body = "".join(f"<dt>{c.esc(q['label'])}</dt><dd><b>{c.esc(c.show_answer(q, kb, answers))}</b></dd>" for q in qs)
+                st.markdown(f'<dl class="rn-dl">{body}</dl>', unsafe_allow_html=True)
+        wiz["name"] = st.text_input("Name for the report (optional)", value=wiz.get("name", ""), max_chars=40)
+        b1, b2 = st.columns(2)
+        b1.button("Back", on_click=state.go, args=(len(kb.steps),), width="stretch")
+        b2.button("See my result", type="primary", on_click=see_result, args=(kb,), width="stretch")
 
 
 def render():
@@ -128,10 +143,10 @@ def render():
         if result is None:
             state.go(len(kb.steps) + 1)
             st.rerun()
-        top = st.columns([1, 1, 2])
+        top = st.columns([1, 1, 3])
         top[0].button("Edit answers", on_click=state.go, args=(len(kb.steps) + 1,), width="stretch")
         top[1].button("Start again", on_click=restart, width="stretch")
-        result_view.render(result, wiz["answers"], kb, "wz", on_use=use_whatif)
+        result_view.render(result, wiz["answers"], kb, "wz", on_use=use_whatif, name=wiz.get("name"))
     c.footer()
 
 
