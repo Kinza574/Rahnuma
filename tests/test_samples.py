@@ -81,3 +81,9 @@ def test_what_if_sana_passes_lat(samples, kb):
 def test_summary_written(results):
     for r in results.values():
         assert r.summary
+
+
+def test_quick_diagnosis_mode_gives_same_top_fields(samples, results, kb):
+    for name, a in samples.items():
+        r = run_consultation(a, kb, use_ask_if=False)
+        assert top_ids(r) == top_ids(results[name]), name

@@ -157,3 +157,42 @@ def summary_text(wm, kb):
     if important:
         parts.append(f"Most important: {important}")
     return " ".join(parts)
+
+
+OP_WORDS = {"eq": "is", "in": "is one of", "is": "is Yes or Not sure", "gte": ">=", "gt": ">", "lt": "<",
+            "between": "is between", "exists": "is known", "missing": "is blank / unknown", "empty": "is empty"}
+
+
+def condition_text(cond, kb, depth=0):
+    """A rule condition as indented plain-English lines (for the rule inspector)."""
+    pad = "    " * depth
+    if "all" in cond:
+        if not cond["all"]:
+            return [pad + "always true"]
+        lines = [pad + "ALL of:"]
+        for c in cond["all"]:
+            lines += condition_text(c, kb, depth + 1)
+        return lines
+    if "any" in cond:
+        lines = [pad + "ANY of:"]
+        for c in cond["any"]:
+            lines += condition_text(c, kb, depth + 1)
+        return lines
+    if "not" in cond:
+        return [pad + "NOT:"] + condition_text(cond["not"], kb, depth + 1)
+    if "query" in cond:
+        q = cond["query"]
+        text = {"rank": f"the {cond.get('position')} highest suitability CF >= {cond.get('gte')}",
+                "best_below": f"no suitability CF reaches {cond.get('lt')}",
+                "top_conditional": "a recommended field is conditional",
+                "aptitudes_strong": f"every aptitude linked to the field has CF >= {cond.get('gte')}"}[q]
+        return [pad + text]
+    op = next(o for o in OP_WORDS if o in cond)
+    subject = cond.get("fact") or ("job demand " + cond["kb"].split(".")[1].replace("pk", "in Pakistan").replace("abroad", "abroad"))
+    subject = subject.replace("$F", "F")
+    value = cond[op]
+    if op in ("exists", "missing", "empty") or op == "is":
+        return [f"{pad}{subject} {OP_WORDS[op]}"]
+    if isinstance(value, list):
+        value = " and ".join(map(str, value)) if op == "between" else ", ".join(map(str, value))
+    return [f"{pad}{subject} {OP_WORDS[op]} {value}"]
