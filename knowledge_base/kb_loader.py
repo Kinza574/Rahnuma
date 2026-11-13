@@ -15,7 +15,9 @@ TRI_LABELS = {"yes": "Yes", "no": "No", "notsure": "Not sure"}
 
 
 class KB:
+    """The whole knowledge base as plain Python data."""
     def __init__(self, data):
+        """Keep the data and build lookups."""
         self.data = data
         self.rules = data["rules"]["rules"]
         self.thresholds = data["thresholds"]["thresholds"]
@@ -31,13 +33,16 @@ class KB:
 
     # ---- thresholds ----
     def t(self, key):
+        """The value of a threshold."""
         return self.thresholds[key]["value"]
 
     def threshold_values(self):
+        """All thresholds as key: value."""
         return {k: v["value"] for k, v in self.thresholds.items()}
 
     # ---- labels ----
     def options(self, qid):
+        """Answer options of a question with readable labels."""
         q = self.question_by_id[qid]
         if q["type"] == "tri":
             return [{"value": v, "label": l} for v, l in TRI_LABELS.items()]
@@ -60,9 +65,11 @@ class KB:
         return value
 
     def confirm_text(self, fact_name):
+        """Text that asks the student to confirm an uncertain fact."""
         return self.data["questions"]["confirm_texts"].get(fact_name)
 
     def fact_label(self, name):
+        """A readable name for a fact."""
         if name in self.aptitudes:
             return self.aptitudes[name]
         if name in self.question_by_id:
@@ -75,6 +82,7 @@ class KB:
 
     # ---- counts for the KB page ----
     def counts(self):
+        """Rule counts for the Knowledge Base page."""
         return {
             "total": len(self.rules),
             "compute": sum(r["type"] == "compute" for r in self.rules),
@@ -83,10 +91,12 @@ class KB:
         }
 
     def copy(self):
+        """A deep copy (Knowledge Acquisition edits a copy)."""
         return KB(copy.deepcopy(self.data))
 
 
 def load_kb(folder=KB_DIR):
+    """Read all JSON files of the knowledge base."""
     data = {}
     for name in FILES:
         with open(Path(folder) / f"{name}.json", encoding="utf-8") as f:

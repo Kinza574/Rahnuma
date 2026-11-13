@@ -17,6 +17,7 @@ OPS = ("eq", "in", "is", "gte", "gt", "lt", "between", "exists", "missing", "emp
 
 @dataclass
 class Match:
+    """Result of checking a condition: ok, CFs for min() and facts used."""
     ok: bool
     cfs: list = field(default_factory=list)    # CFs that go into min()
     used: list = field(default_factory=list)   # (fact name, value, cf) for the trace
@@ -36,6 +37,7 @@ def resolve(value, kb, bind):
 
 
 def _op_of(leaf):
+    """Find which operator a leaf condition uses."""
     for op in OPS:
         if op in leaf:
             return op

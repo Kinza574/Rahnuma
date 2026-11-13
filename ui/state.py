@@ -13,6 +13,7 @@ def kb():
 
 
 def set_kb(new_kb):
+    """Use a changed knowledge base for this session."""
     st.session_state.kb = new_kb
     # results built with the old knowledge base are no longer valid
     for k in ("wiz_result", "qd_result"):
@@ -27,9 +28,11 @@ def wizard():
 
 
 def go(step):
+    """Move the wizard to a step and clear errors."""
     wizard()["step"] = step
     wizard()["errors"] = {}
 
 
 def widget_key(prefix, qid):
+    """Session key of a question widget."""
     return f"{prefix}_{qid}"

@@ -16,7 +16,9 @@ from engine.conditions import count_leaves, evaluate, resolve
 
 
 class Engine:
+    """Forward-chaining engine for one knowledge base."""
     def __init__(self, kb):
+        """Sort the rules by priority once and count their conditions."""
         self.kb = kb
         # Sort once by priority so matching can stop at the first level with a match.
         self.rules = sorted(kb.rules, key=lambda r: -r["priority"])
@@ -47,6 +49,7 @@ class Engine:
         return found
 
     def resolve_conflict(self, found):
+        """Order matches by priority, then specificity, then rule ID."""
         order = list(self.kb.fields)
         return sorted(
             found,
@@ -59,6 +62,7 @@ class Engine:
         )
 
     def run(self, wm):
+        """Match, resolve, fire and repeat until nothing matches, HALT or the cycle cap."""
         fired, trace = set(), []
         max_cycles = int(self.kb.t("max_cycles"))
         cycle = 0
@@ -98,6 +102,7 @@ class Engine:
 
 
 def cf_text(rule_cf, cfs, cf):
+    """CF calculation as text for the trace, e.g. 0.9 x min(1, 0.85) = 0.765."""
     if not cfs:
         return f"{rule_cf:g}"
     inner = ", ".join(f"{c:.3g}" for c in cfs)

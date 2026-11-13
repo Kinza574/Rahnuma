@@ -13,6 +13,7 @@ BUDGET_MAX_BAND = {"low": 0, "medium": 1, "high": 2}
 
 
 def execute(act, rule, bind, match, cf, wm, kb):
+    """Run one THEN-action of a rule and return trace text."""
     rid = rule["id"] + (f"[{bind}]" if bind else "")
     for key, handler in HANDLERS.items():
         if key in act:
@@ -37,6 +38,7 @@ def fill(text, wm, kb, bind=None, extra=None):
 # ---- G0 / G1 ----
 
 def _add_missing(act, rid, bind, match, cf, wm, kb):
+    """DS01-DS05: add an item to the missing list."""
     f = wm.get("missing")
     items = (f.value if f else []) + [act["add_missing"]]
     wm.put("missing", items, 1.0, rid)
@@ -44,12 +46,14 @@ def _add_missing(act, rid, bind, match, cf, wm, kb):
 
 
 def _halt(act, rid, bind, match, cf, wm, kb):
+    """DS06: stop the engine with the result 'Insufficient data'."""
     wm.halted = True
     wm.result["status"] = act.get("status", "insufficient")
     return ["HALT: " + act.get("text", "")]
 
 
 def _warn(act, rid, bind, match, cf, wm, kb):
+    """Add a warning for the student."""
     text = fill(act["warn"], wm, kb, bind)
     wm.warnings.append((rid, text))
     return [f"warning: {text}"]
@@ -72,6 +76,7 @@ def _ignore(act, rid, bind, match, cf, wm, kb):
 # ---- facts ----
 
 def _assert(act, rid, bind, match, cf, wm, kb):
+    """Add a fact, combining CFs if it already exists."""
     name = resolve(act["assert"], kb, bind)
     value_cf = resolve(act["cf"], kb, bind) if "cf" in act else cf
     how = wm.add(name, act.get("value", True), value_cf, rid)
@@ -79,11 +84,13 @@ def _assert(act, rid, bind, match, cf, wm, kb):
 
 
 def _set(act, rid, bind, match, cf, wm, kb):
+    """Set a single-value fact such as the marks band."""
     wm.put(act["set"], act["value"], cf, rid)
     return [f"{act['set']} = {act['value']}"]
 
 
 def _note(act, rid, bind, match, cf, wm, kb):
+    """Add a note (used by MK03)."""
     text = fill(act["note"], wm, kb, bind)
     wm.notes.append((rid, bind, text))
     return [f"note: {text}"]
@@ -92,6 +99,7 @@ def _note(act, rid, bind, match, cf, wm, kb):
 # ---- G4 eligibility ----
 
 def _eligibility(act, rid, bind, match, cf, wm, kb):
+    """G4: set eligible / conditional / not eligible for one or more fields."""
     fields = [bind] if act["eligibility"] == "$F" else act["eligibility"]
     status = act["status"]
     reasons, plans = [], []
@@ -161,6 +169,7 @@ def not_eligible_reason(fid, wm, kb):
 # ---- G5 / G6 suitability ----
 
 def _suit(act, rid, bind, match, cf, wm, kb):
+    """G5/G6: add suitability evidence for a field."""
     fid = bind if act["suit"] == "$F" else act["suit"]
     name = f"suit.{fid}"
     weight = cf
@@ -171,6 +180,7 @@ def _suit(act, rid, bind, match, cf, wm, kb):
 # ---- G7 universities ----
 
 def _uni(act, rid, bind, match, cf, wm, kb):
+    """G7: build or filter the university list for a field."""
     step = act["uni"]
     name = f"unis.{bind}"
     if step == "candidates":
@@ -189,6 +199,7 @@ def _uni(act, rid, bind, match, cf, wm, kb):
 
 
 def candidates(fid, wm, kb):
+    """UN01: universities that offer the field, tagged with test status."""
     gender = wm.value("gender")
     test_inputs = {"mdcat": "mdcat_pct", "ecat": "ecat_pct", "net": "net_pct", "nat": "nat_pct", "sat": "sat_score", "lat": "lat_pct"}
     out = []
@@ -221,6 +232,7 @@ def candidates(fid, wm, kb):
 
 
 def f_min_pct(items, wm, kb):
+    """UN02: remove offerings whose minimum % is above the student's marks."""
     inter = wm.value("inter_pct")
     kept, removed = [], []
     for it in items:
@@ -252,6 +264,7 @@ UNKNOWN_FEE_TAG = "Fee not confirmed — check with the university"
 
 
 def f_city(items, wm, kb):
+    """UN04: keep the student's cities (Not sure keeps others, tagged)."""
     cities = set(wm.value("pref_cities", []) or [])
     if wm.has("home_city"):
         cities.add(wm.value("home_city"))
@@ -273,6 +286,7 @@ def f_city(items, wm, kb):
 
 
 def f_hostel(items, wm, kb):
+    """UN05: keep universities with a hostel."""
     sure = wm.value("hostel") == "yes"
     kept, removed = [], []
     for it in items:
@@ -287,6 +301,7 @@ def f_hostel(items, wm, kb):
 
 
 def f_women(items, wm, kb):
+    """UN06: keep women's universities (Not sure lists them first)."""
     if wm.value("women_only") == "yes":
         kept = [it for it in items if it["women_only"]]
         removed = [(it["name"], "not a women's university") for it in items if not it["women_only"]]
@@ -296,6 +311,7 @@ def f_women(items, wm, kb):
 
 
 def f_sector(items, wm, kb):
+    """UN07: keep only public or only private universities."""
     want = wm.value("sector")
     kept = [it for it in items if it["sector"] == want]
     removed = [(it["name"], f"{it['sector']} sector") for it in items if it["sector"] != want]
@@ -307,6 +323,7 @@ FILTERS = {"min_pct": f_min_pct, "budget": f_budget, "city": f_city,
 
 
 def apply_steps(base, steps, wm, kb):
+    """Re-apply a list of filters to the base list (used by UN08)."""
     items = [dict(it, tags=list(it["tags"])) for it in base]
     removed = []
     for s in steps:
@@ -339,6 +356,7 @@ def relax(f, fid, wm, kb, rid):
 # ---- G8 decisions ----
 
 def _recommend(act, rid, bind, match, cf, wm, kb):
+    """RC01-RC03: pick the n-th best field."""
     n = act["recommend"]
     fid, fcf = ranked_suits(wm, kb)[n - 1]
     wm.result.setdefault("top", []).append(fid)
@@ -346,12 +364,14 @@ def _recommend(act, rid, bind, match, cf, wm, kb):
 
 
 def _advice(act, rid, bind, match, cf, wm, kb):
+    """RC04/RC05: add an advice message."""
     text = fill(act["advice"], wm, kb)
     wm.result.setdefault("advice", []).append((rid, text))
     return [f"advice: {text[:60]}"]
 
 
 def _action_plan(act, rid, bind, match, cf, wm, kb):
+    """RC06: collect the steps for conditional top fields."""
     by_step = {}
     for fid in wm.result.get("top", []):
         e = wm.get(f"elig.{fid}")
@@ -364,6 +384,7 @@ def _action_plan(act, rid, bind, match, cf, wm, kb):
 
 
 def _like_but_not_eligible(act, rid, bind, match, cf, wm, kb):
+    """RC07: 'You seem to like X, but...' with eligible alternatives."""
     f = kb.fields[bind]
     alts = []
     for a in f.get("alternatives", []):
@@ -378,6 +399,7 @@ def _like_but_not_eligible(act, rid, bind, match, cf, wm, kb):
 
 
 def _summary(act, rid, bind, match, cf, wm, kb):
+    """RC08: write the plain-English summary."""
     from engine.explanation import summary_text
     wm.result["summary"] = summary_text(wm, kb)
     return ["summary written"]

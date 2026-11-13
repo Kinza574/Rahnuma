@@ -13,6 +13,7 @@ STATUS_WORD = {"eligible": "Eligible", "conditional": "Conditional", "not_eligib
 
 
 def render(result, answers, kb, prefix, on_use=None, use_ask_if=True, name=None):
+    """Draw the whole counselling report."""
     report_head(name)
     if result.status == "insufficient":
         c.section("Insufficient data")
@@ -44,6 +45,7 @@ def render(result, answers, kb, prefix, on_use=None, use_ask_if=True, name=None)
 
 
 def report_head(name):
+    """Report header with the student's name and date."""
     who = name.strip() if name and name.strip() else "Student"
     today = date.today().strftime("%d %B %Y")
     st.markdown(f'<div class="rn-report-head"><div class="who">Counselling report — {c.esc(who)}</div>'
@@ -211,6 +213,7 @@ def result_text(result, answers, kb):
 # ---- What if? (decision support) ----
 
 def _f(v):
+    """Number as float, keeping None."""
     return None if v is None else float(v)
 
 

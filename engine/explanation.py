@@ -33,6 +33,7 @@ def why_asking(qid, kb):
 
 
 def word(cf, kb):
+    """CF as a word, or 'Weak' when too low to show."""
     return label(cf, kb.threshold_values()) or "Weak"
 
 
@@ -50,6 +51,7 @@ def answer_phrase(name, value, cf, kb):
 
 
 def field_names(ids, kb):
+    """Field IDs as display names."""
     return ", ".join(kb.fields[f]["name"] for f in ids if f in kb.fields)
 
 
@@ -98,6 +100,7 @@ def plain_step(step, kb, technical=False):
 
 
 def plain_steps(trace, kb, technical=False):
+    """Every trace step as a sentence."""
     return [plain_step(s, kb, technical) for s in trace]
 
 

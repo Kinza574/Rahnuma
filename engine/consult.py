@@ -10,6 +10,7 @@ from engine.working_memory import WorkingMemory
 
 @dataclass
 class Result:
+    """Everything the pages need to show one consultation."""
     status: str = "ok"                 # "ok" or "insufficient"
     missing: list = field(default_factory=list)
     warnings: list = field(default_factory=list)
@@ -64,6 +65,7 @@ def add_input(wm, q, answers, kb):
 
 
 def build_memory(answers, kb, use_ask_if=True):
+    """Turn the answers into input facts for working memory."""
     wm = WorkingMemory()
     shown = visible_questions(answers, kb, use_ask_if)
     for q in shown:
@@ -76,6 +78,7 @@ def build_memory(answers, kb, use_ask_if=True):
 
 
 def run_consultation(answers, kb, use_ask_if=True):
+    """Run the engine on the answers and package the result."""
     wm = build_memory(answers, kb, use_ask_if)
     trace = Engine(kb).run(wm)
     r = Result(trace=trace, wm=wm, halted=wm.halted)
@@ -156,6 +159,7 @@ def complete_answers(partial, kb):
 
 
 def load_samples(path=None):
+    """Read the five sample students."""
     import json
     from pathlib import Path
     path = path or Path(__file__).parent.parent / "samples" / "sample_students.json"
@@ -164,4 +168,5 @@ def load_samples(path=None):
 
 
 def steps(result, kb, technical=False):
+    """The trace as plain-English lines."""
     return plain_steps(result.trace, kb, technical)
